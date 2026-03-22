@@ -29,11 +29,11 @@ Tổ chức theo mô hình
 
 - Client-Server
 
-![Untitled](/.image/client-server1.png)
+![Untitled](/.image/c1/client-server1.png)
 
 - Peer-to-Peer
 
-![Untitled](/.image/client-server2.png)
+![Untitled](/.image/c1/client-server2.png)
 
 ## Truy cập mạng (Access Network)
 
@@ -59,11 +59,11 @@ Hai phương pháp thực hiện:
 
 - Phân chia theo tần số (FDMA - Frequency Division Multi Access)
 
-![Untitled](/.image/fdma.png)
+![Untitled](/.image/c1/fdma.png)
 
 - Phân chia theo thời gian (TDMA - Time Division Multi Access)
 
-![Untitled](/.image/tdma.png)
+![Untitled](/.image/c1/tdma.png)
 
 ### Mạng chuyển gói (Packet Passing Network)
 
