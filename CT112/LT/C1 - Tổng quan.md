@@ -29,7 +29,7 @@ Tổ chức theo mô hình
 
 - Client-Server
 
-![Untitled](/.image/c1/client-server1.png)
+![Untitled](/LT/.image/c1/client-server1.png)
 
 - Peer-to-Peer
 
