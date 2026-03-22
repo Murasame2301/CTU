@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="vi-vn">
+  <head>
+    <title>Trang chủ</title>
+    <meta charset="UTF-8" />
+    <link
+      rel="shortcut icon"
+      href="images/favicon.ico"
+      type="image/vnd.microsoft.icon"
+    />
+    <link
+      href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <header>
+      <a href="trangchu.html">
+        <img src="images/logo.png" id="logo" />
+      </a>
+      <img id="header-img1" src="images/header-img1.png"/>
+      <img id="header-img2" src="images/header-img2.png"/>
+      <img id="header-img3" src="images/header-img3.png"/>
+      <nav>
+        <a href="trangchu.html">Trang Chủ</a>
+        <a href="gioithieu.html">Giới Thiệu</a>
+        <a href="sanpham.html">Sản Phẩm</a>
+        <a href="tintuc.html">Tin Tức</a>
+        <a href="dangnhap.html">Đăng Nhập</a>
+        <a href="dangky.html">Đăng ký</a>
+        <a href="lienhe.html">Liên Hệ</a>
+      </nav>
+      <div class="search-box">
+        <input
+          type="search"
+          id="search"
+          placeholder="Nhập nội dung cần tìm..."
+        />
+        <span class="search-icon"><i class="fa fa-search"></i></span>
+        &nbsp;
+        <span class="shopping-cart-icon"
+          ><i class="fa fa-shopping-cart"></i
+        ></span>
+      </div>
+    </header>
+    <main class="one-col">
+      <h1>Liên hệ</h1>
+      <p>
+        <span class="map-icon"><i class="fa fa-map-marker"></i></span>
+        <b>Địa chỉ: 0123, Toà Nhà ABC, TP. Cần Thơ</b>
+        Nếu bạn có góp ý, vui lòng liên hệ bằng thư điện tử hoặc sử dụng biểu
+        mẫu bên dưới<br />Xin cảm ơn.
+      </p>
+      <form method="post" enctype="application/x-www-form-urlencoded">
+        <h1>Góp ý</h1>
+        <div>
+          <label for="name" class="form-icons"
+            ><i class="fa fa-user"></i
+          ></label>
+          <input
+            id="name"
+            type="text"
+            name="name"
+            placeholder="Vui lòng nhập Họ tên của bạn"
+            required
+          />
+        </div>
+        <div>
+          <label for="email" class="form-icons"
+            ><i class="fa fa-envelope"></i
+          ></label>
+          <input
+            id="email"
+            type="text"
+            name="email"
+            placeholder="Vui lòng nhập nhập địa chỉ Email"
+            required
+          />
+        </div>
+        <div>
+          <label for="name" class="form-icons"
+            ><i class="fa fa-list"></i
+          ></label>
+          <select size="1">
+            <option>Về Sản Phẩm/Dịch Vụ</option>
+            <option>Về Ưu Đãi Thành Viên</option>
+            <option>Về Tin Tuyển Dụng</option>
+          </select>
+        </div>
+        <div>
+          <label for="details" class="form-icons"
+            ><i class="fa fa-stricky-note"></i
+          ></label>
+          <textarea name="details" id="details" rows="7" cols="50" type="text" placeholder="Nội dung cần liên hệ" required></textarea>
+      </form>
+    </main>
+    <footer>
+      &#169; 2021 Bản quyền thuộc về FreeezeVN.
+      <a href="#" class="fa fa-facebook"></a>
+      <a href="#" class="fa fa-twitter"></a>
+      <a href="#" class="fa fa-pinterest"></a>
+      <a href="#logo"><img src="images/top.png" width="50px" /></a>
+    </footer>
+  </body>
+</html>
