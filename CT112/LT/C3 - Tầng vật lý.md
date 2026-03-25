@@ -1,7 +1,5 @@
 # Tầng vật lý
 
-Created: January 17, 2026 9:21 PM
-
 # Mô hình truyền dữ liệu cơ bản
 
 Các vấn đề phải quan tâm:
