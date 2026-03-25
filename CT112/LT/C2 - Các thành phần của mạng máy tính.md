@@ -1,7 +1,5 @@
 # Các thành phần của mạng máy tính
 
-Created: January 17, 2026 9:21 PM
-
 # Phân loại mạng
 
 ## Phân loại mạng theo kỹ thuật truyền tin
