@@ -1,4 +1,5 @@
-# Tổng quan
+# Tổng quan về mạng máy tính
+## Tổng quan
 
 | Mạng điện báo   | Sử dụng mã Morse (2 tín hiệu tic te) để mã hóa dữ liệu truyền đi |
 | --------------- | ---------------------------------------------------------------- |
@@ -8,8 +9,10 @@
 - Thiết lập nối kết tận biến giữa hai bên truyền nhận. |
   | Mạng hướng đầu cuối | Mạng của Mainframe |
   | Mạng máy tính | Mạng của hai hay nhiều máy tính được nói lại với nhau bằng đường truyền vật lý theo một kiến trúc nào đó |
+## Mạng máy tính
+- Mạng của hai hay nhiều máy tính được nối lại với nhau bằng đường truyền vật lý theo một kiến trúc nào đó.
 
-# Cấu trúc mạng máy tính
+## Cấu trúc mạng máy tính
 
 Gồm 3 thành phần
 
@@ -17,23 +20,22 @@ Gồm 3 thành phần
 - Truy cập mạng (_physical media_): các kênh truyền tải thông tin hữu tuyến hoặc vô tuyến
 - Lõi của mạng (_network core_): hệ thống các bộ chọn đường và kết nối tốc độ cao.
 
-## **Rìa của mạng (network edge)**:
+### **Rìa của mạng (network edge)**:
 
-Các “máy chủ/máy trạm” thực thi các ứng dụng mạng
+- Các “máy chủ/máy trạm” thực thi các ứng dụng mạng
+- Các “máy chủ/máy trạm” còn đượng gọi là các End Systems (điểm khởi đầu và điểm kết thúc của các dòng thông tin)
 
-Các “máy chủ/máy trạm” còn đượng gọi là các End Systems (điểm khởi đầu và điểm kết thúc của các dòng thông tin)
+- Tổ chức theo mô hình
 
-Tổ chức theo mô hình
+  - Client-Server
 
-- Client-Server
+  ![Untitled](./.image/c1/client-server1.png)
 
-![Untitled](./.image/c1/client-server1.png)
+  - Peer-to-Peer
 
-- Peer-to-Peer
+  ![Untitled](./.image/c1/client-server2.png)
 
-![Untitled](./.image/c1/client-server2.png)
-
-## Truy cập mạng (Access Network)
+### Truy cập mạng (Access Network)
 
 Kết nối các máy tính (hosts - end system) vào các Router ngoài biên (Edge Router):
 
@@ -41,53 +43,48 @@ Kết nối các máy tính (hosts - end system) vào các Router ngoài biên (
 - Mạng cục bộ (Ethernet LAN) của các tổ chức, doanh nghiệp, trường học,...
 - Mạng không dây: WIFI, 4G, 5G...
 
-## Mạng đường trục (Network core)
+#### Mạng đường trục (Network core)
 
-Mạng tốc độ cao của các router
+- Mạng tốc độ cao của các router
+- Đảm bảo thông tin thông suốt giữa các máy tính cách xa nhau
+- Sử dụng hai chế độ truyền tin: mạng chuyển mạch & mạng chuyển gói
 
-Đảm bảo thông tin thông suốt giữa các máy tính cách xa nhau
+#### Mạng chuyển mạch
 
-Sử dụng hai chế độ truyền tin: mạng chuyển mạch & mạng chuyển
+- Thiết lập kênh truyền tận hiến giữa hai bên truyền nhận
+- Hai phương pháp thực hiện:
+  - Phân chia theo tần số (FDMA - Frequency Division Multi Access)
+    ![Untitled](./.image/c1/fdma.png)
+  - Phân chia theo thời gian (TDMA - Time Division Multi Access)
+    ![Untitled](./.image/c1/tdma.png)
 
-### Mạng chuyển mạch
+#### Mạng chuyển gói (Packet Passing Network)
 
-Thiết lập kênh truyền tận hiến giữa hai bên truyền nhận
+- Thông tin truyền đi được chia thành các gói tin (Packetts)
+- Các gói tin của hosts khác nhau cùng chia sẻ tài nguyên mạng
+- Mỗi gói tin sẽ sử dụng toàn bộ băng thông của liên kết khi nó được phép.
+- Giải quyết nghẽn mạch → **Sử dụng kỹ thuật lưu và chuyển tiếp (store and forward)**
 
-Hai phương pháp thực hiện:
-
-- Phân chia theo tần số (FDMA - Frequency Division Multi Access)
-
-![Untitled](./.image/c1/fdma.png)
-
-- Phân chia theo thời gian (TDMA - Time Division Multi Access)
-
-![Untitled](./.image/c1/tdma.png)
-
-### Mạng chuyển gói (Packet Passing Network)
-
-Thông tin truyền đi được chia thành các gói tin (Packetts)
-
-Các gói tin của hosts khác nhau cùng chia sẻ tài nguyên mạng
-
-Mỗi gói tin sẽ sử dụng toàn bộ băng thông của liên kết khi nó được phép.
-
-Giải quyết nghẽn mạch → **Sử dụng kỹ thuật lưu và chuyển tiếp (store and forward)**
-
-### So sánh
+#### So sánh chuyển mạch vs chuyển gói
 
 ![Untitled](./.image/c1/Untitled%204.png)
 
+**Chuyển mạch**
 - Một đường truyền 1Mbit
 - Mỗi người dùng được cấp 100Kbps khi truy cập “active”
 - Thời gian active chiếm 10% tổng thời gian.
 
 Khi đó:
-
-- Circuit-switching cho phép tối đa 10 users
+- Circuit-switching cho phép tối đa **10 users**
 - Packet-switching cho phép 35 users, **xác suất có hơn 10 “active” đồng thời là nhỏ hơn 0.004**
   - Thích hợp cho lượng lưu thông dữ liệu lớn nhờ cơ chế chia sẻ tài nguyên và không cần thiết lập kết nối.
   - Cần có cơ chế điều khiển tát nghẽn và mất dữ liệu.
   - Khó đảm bảo băng thông cố định cho các ứng dụng đa phương tiện.
+**Chuyển gói:**
+- Thích hợp cho lượng lưu thông dữ liệu lớn nhờ cơ chế chia sẻ tài nguyên và không cần thiết lập kết nối.
+- Cần có cơ chế điều khiển tắt nghẽn và mất dữ liệu.
+- Khó đảm bảo băng thông cố định cho các ứng dụng đa phương tiện.
+
 
 ## Lợi ích của mạng
 
@@ -100,7 +97,7 @@ Khi đó:
 | **Nhiều ứng dụng mới ra đời**                          | làm việc từ xa, làm việc nhóm, văn phòng ảo, hội thảo qua mạng. |
 | **Sử dụng thay thế các dịch vụ liên lạc truyền thống** | IP telephone, email, IPTV, Chat…                                |
 
-# Bài tập
+## Bài tập
 
 Chúng ta phải mất thời gian bao lâu để gởi một tập tin có dung lượng **640,000** bits từ máy A tới máy B thông qua một mạng circuit-switched? Biết rằng:
 
