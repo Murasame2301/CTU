@@ -1,0 +1,158 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAX_N 100
+#define MAX_M 1000
+#define MAX_NAME 100
+
+typedef struct {
+    int w;
+    int v;
+    int qty;
+    int max_qty;
+    char name[MAX_NAME];
+} Item;
+
+void readFile(Item a[], int *n, int *m) {
+    FILE *f = fopen("QHD_CaiBalo2.inp", "r");
+    if (f == NULL) {
+        printf("Khong mo duoc file QHD_CaiBalo2.inp\n");
+        *n = 0;
+        *m = 0;
+        return;
+    }
+
+    if (fscanf(f, "%d", m) != 1) {
+        printf("File du lieu khong hop le\n");
+        *n = 0;
+        *m = 0;
+        fclose(f);
+        return;
+    }
+
+    *n = 0;
+    while (*n < MAX_N && fscanf(f, "%d %d %d %[^\n]", &a[*n].w, &a[*n].v, &a[*n].max_qty, a[*n].name) == 4) {
+        size_t len = strlen(a[*n].name);
+        while (len > 0 && (a[*n].name[len - 1] == '\r' || a[*n].name[len - 1] == ' ' || a[*n].name[len - 1] == '\t')) {
+            a[*n].name[len - 1] = '\0';
+            len--;
+        }
+        a[*n].qty = 0;
+        (*n)++;
+    }
+
+    fclose(f);
+}
+
+int minInt(int a, int b) {
+    return a < b ? a : b;
+}
+
+void printInput(Item a[], int n, int m) {
+    printf("Du lieu bai toan Cai ba lo 2 (so luong moi do vat co gioi han):\n");
+    printf("Trong luong ba lo m = %d\n", m);
+    printf("|----|-----------------------|-------------|---------|-----------------|\n");
+    printf("|%-4s|%-23s|%-13s|%-9s|%-17s|\n", "STT", "Ten do vat", "Trong luong", "Gia tri", "So luong toi da");
+    printf("|----|-----------------------|-------------|---------|-----------------|\n");
+    for (int i = 0; i < n; i++) {
+        printf("|%4d|%-23s|%13d|%9d|%17d|\n", i + 1, a[i].name, a[i].w, a[i].v, a[i].max_qty);
+    }
+    printf("|----|-----------------------|-------------|---------|-----------------|\n\n");
+}
+
+void createTable(Item a[], int n, int m, int F[][MAX_M + 1], int X[][MAX_M + 1]) {
+    for (int j = 0; j <= m; j++) {
+        X[0][j] = minInt(j / a[0].w, a[0].max_qty);
+        F[0][j] = X[0][j] * a[0].v;
+    }
+
+    for (int i = 1; i < n; i++) {
+        for (int j = 0; j <= m; j++) {
+            F[i][j] = F[i - 1][j];
+            X[i][j] = 0;
+            int maxQty = minInt(j / a[i].w, a[i].max_qty);
+            for (int k = 1; k <= maxQty; k++) {
+                int value = k * a[i].v + F[i - 1][j - k * a[i].w];
+                if (value > F[i][j]) {
+                    F[i][j] = value;
+                    X[i][j] = k;
+                }
+            }
+        }
+    }
+}
+
+void printTable(int n, int m, int F[][MAX_M + 1], int X[][MAX_M + 1]) {
+    printf("Bang quy hoach dong [F, X]:\n");
+    printf("Moi o co dang (F, X), trong do F la gia tri toi uu va X la so luong vat dang xet duoc chon.\n\n");
+
+    printf("|Vat\\TL ");
+    for (int j = 0; j <= m; j++) {
+        printf("| %5d ", j);
+    }
+    printf("|\n");
+
+    for (int i = 0; i < n; i++) {
+        printf("|x%-6d", i + 1);
+        for (int j = 0; j <= m; j++) {
+            printf("|(%2d,%2d)", F[i][j], X[i][j]);
+        }
+        printf("|\n");
+    }
+    printf("\n");
+}
+
+void searchTable(Item a[], int n, int m, int X[][MAX_M + 1]) {
+    int remain = m;
+    for (int i = n - 1; i >= 0; i--) {
+        a[i].qty = X[i][remain];
+        remain -= a[i].qty * a[i].w;
+    }
+}
+
+void printResult(Item a[], int n, int m, int F[][MAX_M + 1]) {
+    int totalValue = 0;
+    int totalWeight = 0;
+
+    printf("Phuong an toi uu duoi dang danh sach X(x1, ..., xn):\n");
+    printf("X(");
+    for (int i = 0; i < n; i++) {
+        printf("%d", a[i].qty);
+        if (i < n - 1) printf(", ");
+        totalWeight += a[i].qty * a[i].w;
+        totalValue += a[i].qty * a[i].v;
+    }
+    printf(")\n\n");
+
+    printf("|----|-----------------------|-------------|---------|-----------------|----------------|\n");
+    printf("|%-4s|%-23s|%-13s|%-9s|%-17s|%-16s|\n", "STT", "Ten do vat", "Trong luong", "Gia tri", "So luong toi da", "So luong chon");
+    printf("|----|-----------------------|-------------|---------|-----------------|----------------|\n");
+    for (int i = 0; i < n; i++) {
+        printf("|%4d|%-23s|%13d|%9d|%17d|%16d|\n", i + 1, a[i].name, a[i].w, a[i].v, a[i].max_qty, a[i].qty);
+    }
+    printf("|----|-----------------------|-------------|---------|-----------------|----------------|\n");
+
+    printf("Trong luong ba lo            = %d\n", m);
+    printf("Tong trong luong do vat chon = %d\n", totalWeight);
+    printf("Tong gia tri lon nhat        = %d\n", totalValue);
+    printf("Gia tri toi uu F[n-1][m]     = %d\n", F[n - 1][m]);
+}
+
+int main() {
+    Item a[MAX_N];
+    int n = 0, m = 0;
+    static int F[MAX_N][MAX_M + 1];
+    static int X[MAX_N][MAX_M + 1];
+
+    readFile(a, &n, &m);
+    if (n == 0) return 1;
+
+    printInput(a, n, m);
+    createTable(a, n, m, F, X);
+    printTable(n, m, F, X);
+    searchTable(a, n, m, X);
+    printResult(a, n, m, F);
+
+    return 0;
+}
