@@ -1,7 +1,5 @@
 # Tổng quan
 
-Created: January 17, 2026 9:21 PM
-
 | Mạng điện báo   | Sử dụng mã Morse (2 tín hiệu tic te) để mã hóa dữ liệu truyền đi |
 | --------------- | ---------------------------------------------------------------- |
 | Mạng điện thoại | - Cho phép thông tin dưới dạng âm thanh                          |
