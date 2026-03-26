@@ -23,7 +23,7 @@ Gồm 3 thành phần
 ### **Rìa của mạng (network edge)**:
 
 - Các “máy chủ/máy trạm” thực thi các ứng dụng mạng
-- Các “máy chủ/máy trạm” còn đượng gọi là các End Systems (điểm khởi đầu và điểm kết thúc của các dòng thông tin)
+- Các “máy chủ/máy trạm” còn được gọi là các End Systems (điểm khởi đầu và điểm kết thúc của các dòng thông tin)
 
 - Tổ chức theo mô hình
 
