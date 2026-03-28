@@ -55,13 +55,14 @@ Kết nối các máy tính (hosts - end system) vào các Router ngoài biên (
     ![Untitled](./.image/c1/fdma.png)
   - Phân chia theo thời gian (TDMA - Time Division Multi Access)
     ![Untitled](./.image/c1/tdma.png)
-
+<br> => Thiết lập mạch tận hiến, đảm bảo tốc độ nhưng phục vụ số lượng người hạn chế
 #### Mạng chuyển gói (Packet Passing Network)
 
 - Thông tin truyền đi được chia thành các gói tin (Packetts)
 - Các gói tin của hosts khác nhau cùng chia sẻ tài nguyên mạng
 - Mỗi gói tin sẽ sử dụng toàn bộ băng thông của liên kết khi nó được phép.
 - Giải quyết nghẽn mạch → **Sử dụng kỹ thuật lưu và chuyển tiếp (store and forward)**
+<br>=>Phục vụ nhiều người hơn nhưng không cham kết chất lượng dịch vụ (có thể mất gói hoặc trễ)
 
 #### So sánh chuyển mạch vs chuyển gói
 
