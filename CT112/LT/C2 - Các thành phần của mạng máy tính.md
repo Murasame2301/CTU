@@ -1,5 +1,3 @@
-# Các thành phần của mạng máy tính
-
 # Phân loại mạng
 
 ## Phân loại mạng theo kỹ thuật truyền tin
@@ -161,3 +159,45 @@ Là thành phần thật sự làm cho mạng máy tính hoạt động, đượ
 - **Dịch vụ**: là các thủ tục (phép toán) mà một tầng cung cấp cho tầng phía trên của nó.
 - **Giao thức**: Tập hợp các qui tắc mô tả khuôn dạng, ý nghĩa của các gói tin được trao đổi bởi hai thực thể.
 - Cùng một dịch vụ có thể được thực hiện bởi các giao thức khác nhau.
+# Mô hình OSI
+![Untitled](https://github.com/user-attachments/assets/3ac879e8-fb37-4493-ba03-62928adf6add)
+
+- Gồm có 7 tầng (theo thứ tự từ trên xuống):
+    - **Tầng ứng dụng (Application layer)**
+        - Là lớp tương tác trực tiếp với dữ liệu người dùng
+        - Các phần mềm, dịch vụ sử dụng lớp ứng dụng bắt đầu cài đặt liên lạc: Email client, Web browsers, FTP, . . .
+        - Cho phép người phát triển định nghĩa các protocol của ứng dụng: HTTP, SMTP, POP, IMAP...
+    - **Tầng trình bày (Presentation layer)**
+        - Chuẩn hóa dữ liệu trao đổi giữa các hệ thống khác nhau đảm bảo cho lớp ứng dụng của thiết bị nhận có thể hiểu được.
+        - Nén, mã hóa thông tin tăng tốc độ và hiệu quả
+    - **Tầng giao dịch (Session layer)**
+        -    Quản lý các giao dịch (mở và đóng giao tiếp giữa hai thiết bị), thời gian giữa lúc mở và đóng gọi là phiên.
+        - Đồng bộ hóa dữ liệu truyền, nhận với các điểm kiểm tra (checkpoints). Điều này cho phép phiên được tiếp tục từ điểm kiểm tra gần đây nhất trong trường hợp xảy ra sự cố hoặc ngắt kết nối.
+    - **Tầng vận chuyển (Transport layer)**
+        - Truyền dữ liệu điểm nối điểm (end-to-end)
+        - Lấy dữ liệu từ lớp phiên (Session) và chia nó thành các phần được gọi là phân đoạn (segments) trước khi gửi đến lớp 3 (Network).
+        - Bên nhận có trách nhiệm tập hợp lại các phân đoạn thành dữ liệu mà lớp phiên có thể sử dụng.
+        - Kiểm tra các gói tin truyền nhận: mất, trùng lặp
+        - Điều khiển lỗi và điều khiển luồng
+    - **Tầng mạng (Network layer)**
+        - Tầng mạng đảm bảo truyền tải kiểu host-to-host
+        - Phân đoạn được chia nhỏ thành các gói tin (Packet)
+        - Đơn vị truyền nhận dữ liệu là gói tin (Packet)
+        - Định tuyến (Routing) và chuyển tiếp (Forwarding) các gói tin
+        - Kiểm tra, khắc phục tình trạng tắt nghẽn đường truyền
+    - **Tầng liên kết dữ liệu (Data link layer)**
+        - Đơn vị truyền nhận dữ liệu là khung (Frame)
+        - Thiết lập cơ chế phát hiện và xử lý lỗi
+        - Điều khiển dòng (Flow control)
+        - Giải quyết tranh chấp đường truyền
+        - Kênh truyền nối trực tiếp hai máy tính trên cùng một mạng
+    - **Tầng vật lý (Physical layer)**
+        - Truyền tải các bit thô (raw bit) trên một kênh truyền vật lý
+        - Định các chuẩn thiết kế:
+        - Cách nối kết các máy:
+        - Mức điện thế, . . .
+        - Cấu trúc các đầu nối,...
+        - Phương pháp truyền tải
+# Mô hình TCP/IP
+![Untitled](https://github.com/user-attachments/assets/41fe5b22-2f7b-467f-81d7-d52382fb91d3)
+
