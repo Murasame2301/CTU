@@ -1,14 +1,12 @@
 # Tổng quan về mạng máy tính
 ## Tổng quan
 
-| Mạng điện báo   | Sử dụng mã Morse (2 tín hiệu tic te) để mã hóa dữ liệu truyền đi |
-| --------------- | ---------------------------------------------------------------- |
-| Mạng điện thoại | - Cho phép thông tin dưới dạng âm thanh                          |
-
-- Là mạng chuyển mạch (Circuit Switching) định hướng nối kết
-- Thiết lập nối kết tận biến giữa hai bên truyền nhận. |
-  | Mạng hướng đầu cuối | Mạng của Mainframe |
-  | Mạng máy tính | Mạng của hai hay nhiều máy tính được nói lại với nhau bằng đường truyền vật lý theo một kiến trúc nào đó |
+| Phân loại mạng | Đặc điểm / Mô tả |
+| :--- | :--- |
+| **Mạng điện báo** | Sử dụng mã Morse (2 tín hiệu tic te) để mã hóa dữ liệu truyền đi |
+| **Mạng điện thoại** | - Cho phép thông tin dưới dạng âm thanh<br>- Là mạng chuyển mạch (Circuit Switching) định hướng nối kết<br>- Thiết lập nối kết tận biến giữa hai bên truyền nhận. |
+| **Mạng hướng đầu cuối** | Mạng của Mainframe |
+| **Mạng máy tính** | Mạng của hai hay nhiều máy tính được nối lại với nhau bằng đường truyền vật lý theo một kiến trúc nào đó |
 ## Mạng máy tính
 - Mạng của hai hay nhiều máy tính được nối lại với nhau bằng đường truyền vật lý theo một kiến trúc nào đó.
 
