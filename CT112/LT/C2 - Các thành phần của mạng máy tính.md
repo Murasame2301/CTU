@@ -34,25 +34,19 @@ $\Rightarrow$ **Cần tìm đường đi nào đi tốt nhất cho gói tin**
 | 10000 km | Cả hành tinh |  |
 
 ### Mạng cục bộ (LAN-Local Area Network)
-
-Thuộc loại mạng quảng bá
-
-Sử dụng đường truyền băng thông rộng
-
-Có hình trạng (topology) đơn giản như:
-
-- Mạng tuyến tính (Bus)
+- Thuộc loại mạng quảng bá
+- Sử dụng đường truyền băng thông rộng
+- Có hình trạng (topology) đơn giản như:
+    + Mạng tuyến tính (Bus)
+        ![Untitled](./.image/c2/Untitled%202.png)
+        Tất cả các máy tính kết nối với nhau bằng một dây dẫn (cáp đồng trục)
     
-    ![Untitled](./.image/c2/Untitled%202.png)
+    **Ưu điểm**: dễ cài đặt và chi phí xây dựng thấp.
     
-    Tất cả các máy tính kết nối với nhau bằng một dây dẫn (cáp đồng trục)
-    
-    Ưu điểm: dễ cài đặt và chi phí xây dựng thấp.
-    
-    Khuyết điểm: Khó phát hiện lỗi.
+    **Khuyết điểm**: Khó phát hiện lỗi.
     
 
-- Mạng hình sao (Star)
+- **Mạng hình sao (Star)**
     
     Các máy tính được nối vào một thiết bị tập trung (Hub/Switch) thông qua một liên kết riêng (cáp UTP/Cáp quang)
     
@@ -66,11 +60,11 @@ Có hình trạng (topology) đơn giản như:
     - Chi phí cao hơn so với Bus
     - Không hoạt động nếu Hub bị lỗi
 
-![Untitled](./.image/c2/Untitled%203.png)
+        ![Untitled](./.image/c2/Untitled%203.png)
 
-![Untitled](./.image/c2/Untitled%204.png)
+        ![Untitled](./.image/c2/Untitled%204.png)
 
-- Mạng hình vòng (Ring)
+- **Mạng hình vòng (Ring)**
     
     Truyền thông tin bằng cách sử dụng một thẻ (token) lần lượt truyền qua các máy tính
     
@@ -80,21 +74,18 @@ Có hình trạng (topology) đơn giản như:
 ### Mạng đô thị (MAN - Metropolitan Area Network)
 
 Phạm vi:
-
 - Một thành phố
 - Một khu đô thị
 - Một khu kinh
 
-![Untitled](./.image/c2/Untitled%205.png)
+    ![Untitled](./.image/c2/Untitled%205.png)
 
 ### Mạng diện rộng (WAN - Wide Area Network)
 
 Ra đời nhằm đáp ứng:
-
 - Tăng khoảng cách giữa các host trong mạng
 - Tăng số lượng các host trong mạng
-
-=>  Mở rộng mạng
+<br>$\Rightarrow$  Mở rộng mạng
 
 *Sử dụng kỹ thuật Lưu và chuyển tiếp (Store and Forward)*
 
