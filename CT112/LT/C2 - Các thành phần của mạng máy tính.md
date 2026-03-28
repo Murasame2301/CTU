@@ -112,20 +112,23 @@ Là thành phần thật sự làm cho mạng máy tính hoạt động, đượ
 - **Giao diện (Interfaces):** Mô tả cách mà một khách hàng có thể sử dụng được các dịch vụ mạng và cách các dịch vụ có thể được truy cập đến.
 
 ## Kiến trúc thứ bậc của giao thức
+- Các dịch vụ mạng được nhóm vào những tầng khác nhau
+- Tầng trên sử dụng dịch vụ của tầng dưới (under adjacent layer)
+- Hai tầng ngang cấp giao tiếp nhau theo một giao thức đã định nghĩa trước
+- Giao thức qui định qui tắt trao đổi thông tin: Khuôn dạng dữ liệu, nghi thức bắt tay, phương thức phát hiện và xử lý lỗi, ...
 
-Để giảm độ phức tạp trong quá trình thiết kế và xây dựng, các hệ thống mạng được tổ chức thành một chồng (stack) các tầng (lớp) khác nhau, theo nguyên tắc:
-- Tầng trên dựa vào tầng dưới (tầng trên sử dụng các **dịch vụ** của tầng dưới)
-- Hai tầng ngang cấp nhau, trên 02 đối tượng mạng, luôn thống nhất với nhau về cách thức (**giao thức**) mà chúng sẽ trao đổi thông tin.
+- Để giảm độ phức tạp trong quá trình thiết kế và xây dựng, các hệ thống mạng được tổ chức thành một chồng (stack) các tầng (lớp) khác nhau, theo nguyên tắc:
+    - Tầng trên dựa vào tầng dưới (tầng trên sử dụng các **dịch vụ** của tầng dưới)
+    - Hai tầng ngang cấp nhau, trên 02 đối tượng mạng, luôn thống nhất với nhau về cách thức (**giao thức**) mà chúng sẽ trao đổi thông tin.
 
-Giữa hai tầng liền kề tồn tại một **giao diện**
+- Giữa hai tầng liền kề tồn tại một **giao diện**
 
-![Untitled](./.image/c2/Untitled%207.png)
+    ![Untitled](./.image/c2/Untitled%207.png)
 
-Các hệ thống mạng khác nhau sẽ có số tầng, tên các tầng, chức năng của từng tầng…khác nhau
+- Các hệ thống mạng khác nhau sẽ có số tầng, tên các tầng, chức năng của từng tầng…khác nhau
 
-### Bộ giao thức TCP/IP
-
-    ![Untitled](./.image/c2/Untitled%208.png)
+### Bộ giao thức TCP/IP    
+![Untitled](./.image/c2/Untitled%208.png)
 
 ## Dịch vụ mạng
 
