@@ -4,23 +4,19 @@
 
 ## Phân loại mạng theo kỹ thuật truyền tin
 
-### Mạng quảng bá
+### Mạng quảng bá (Broadcast)
 
-Tất cả các máy tính trong mạng chia sẻ một kênh truyền
-
-Khi một máy tính gởi tin-> tất cả các máy tính còn lại đều nhận
-
-Tại một thời điểm chỉ có một máy được gởi
+- Tất cả các máy tính trong mạng chia sẻ một kênh truyền
+- Khi một máy tính gởi tin-> tất cả các máy tính còn lại đều nhận
+- Tại một thời điểm chỉ có một máy được gởi
 
 ![Untitled](./.image/c2/Untitled.png)
 
 ### **Mạng điểm nối điểm (Point to Point) - Mạng chuyển mạch (Switched Network) :**
 
-Có nhiều kết nối giữa các cặp máy tính 
-
-Thông tin được gửi từ nguồn đến đích có thể thông qua các điểm trung gian
-
-**⇒ Cần tìm đường đi nào đi tốt nhất cho gói tin** 
+- Có nhiều kết nối giữa các cặp máy tính 
+- Thông tin được gửi từ nguồn đến đích có thể thông qua các điểm trung gian<br>
+$\Rightarrow$ **Cần tìm đường đi nào đi tốt nhất cho gói tin**
 
 ![Untitled](./.image/c2/Untitled%201.png)
 
