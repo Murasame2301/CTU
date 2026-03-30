@@ -18,6 +18,7 @@ void init_Graph(Graph *pG, int n) {
 
 void add_edge(Graph *pG, int u, int v, int w) {
     pG->A[u][v] = w;
+    pG->A[v][u] = w;
     pG->m++;
 }
 
@@ -73,12 +74,12 @@ int main(){
     scanf("%d%d%d", &x, &y, &w);
     add_edge(&G, x, y,w);
   }
-  Graph T; 
+  Graph T;
   int sum = Prim(&G, 1, &T);
   printf("%d\n", sum);
   for (int u = 1; u <= n; u++){
     for (int v =1 ;v <= n ;v ++){
-      if (T.A[u][v]){
+      if (T.A[u][v] && u < v){
         printf("%d %d %d\n",u , v, T.A[u][v]);
       }
     }
