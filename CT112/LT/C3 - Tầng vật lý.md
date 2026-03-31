@@ -169,16 +169,11 @@ Dữ liệu âm thanh và phim ảnh thuộc kiểu tuần tự
 
 ## Tín hiệu tuần tự & Tín hiệu số
 
-Dữ liệu (các bits 0, 1) được truyền từ thiết bị truyền sang thiết bị nhận bằng các tín hiệu tuần tự hay tín hiệu số
-
-![Tín hiệu tuần tự](./.image/c3/Untitled%2012.png)
-
-Tín hiệu tuần tự
-
-![Tín hiệu số](./.image/c3/Untitled%2013.png)
-
-Tín hiệu số
-
+- Dữ liệu (các bits 0, 1) được truyền từ thiết bị truyền sang thiết bị nhận bằng các tín hiệu tuần tự hay tín hiệu số
+  - Tín hiệu tuần tự
+    ![Tín hiệu tuần tự](./.image/c3/Untitled%2012.png)
+  - Tín hiệu số
+    ![Tín hiệu số](./.image/c3/Untitled%2013.png)
 ## Tín hiệu dạng sóng hình sin
 
 Sóng dạng hình sin:
