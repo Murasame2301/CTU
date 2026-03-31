@@ -329,41 +329,39 @@ Từ $\dfrac{S}{B} = 10log_{10}\dfrac{P_S(Watt)}{P_B(Watt)}$
 
 ## Lưu lượng/Giao thông (Traffic)
 
-Lưu lượng là đại lượng chỉ mức độ sử dụng kênh truyền → xác định kênh truyền phù hợp với mức độ sử dụng hiện tại.
+- Lưu lượng là đại lượng chỉ mức độ sử dụng kênh truyền → xác định kênh truyền phù hợp với mức độ sử dụng hiện tại.
 
-Để đo mức độ sử dụng kênh truyền trong một giây ta sử dụng biểu thức sau :
+- Để đo mức độ sử dụng kênh truyền trong một giây ta sử dụng biểu thức sau :
 
-- $E = T\dfrac{Nc}{3600}$
+$$ \boxed{E = T\dfrac{Nc}{3600}} $$
 
-Trong đó
+- Trong đó
+  - $E$: mức độ sử dụng kênh truyền trong một giây
+  - $T$: độ dài trung bình của một phiên giao dịch (session), đơn vị là giây
+  - $N_c$: Số lượng phiên giao dịch trung bình trong một giờ
 
-- $E$: mức độ sử dụng kênh truyền trong một giây
-- $T$: độ dài trung bình của một phiên giao dịch (session), đơn vị là giây
-- $N_c$: Số lượng phiên giao dịch trung bình trong một giờ
+- Trong thực tế một phiên giao dịch chứa nhiều khoản im lặng (không dùng kênh truyền) ⇒ có hai loại phiên giao dịch
 
-Trong thực tế một phiên giao dịch chứa nhiều khoản im lặng (không dùng kênh truyền) ⇒ có hai loại phiên giao dịch
+  - Các phiên giao dịch ở đó T được sử dụng hết (1)
+  - Các phiên giao dịch ở đó T không được sử dụng hết (2)
 
-- Các phiên giao dịch ở đó T được sử dụng hết (1)
-- Các phiên giao dịch ở đó T không được sử dụng hết (2)
+- Trường hợp (2) lưu lượng **không phản ánh** đúng mức độ bận rộn của kênh truyền
 
-Trường hợp (2) lưu lượng **không phản ánh** đúng mức độ bận rộn của kênh truyền
+- Ta chia Phiên giao dịch thành nhiều Giao dịch (transaction) với độ dài trung bình là p bit, chúng cách nhau bởi những khoảng im lặng.
 
-Ta chia Phiên giao dịch thành nhiều Giao dịch (transaction) với độ dài trung bình là p bit, chúng cách nhau bởi những khoảng im lặng.
+- Giả sử Nt là số giao dịch trung bình trong một phiên giao dịch.
 
-Giả sử Nt là số giao dịch trung bình trong một phiên giao dịch.
+  ![Untitled](./.image/c3/Untitled%2020.png)
 
-![Untitled](./.image/c3/Untitled%2020.png)
+- Gọi D là tốc độ bit của kênh truyền, tốc độ bit thật sự d trong trường hợp này là: $d = \dfrac{N_1P}{T}$
 
-Gọi D là tốc độ bit của kênh truyền, tốc độ bit thật sự d trong trường hợp này là: $d = \dfrac{N_1P}{T}$
+- Tầng suất sử dụng kênh truyền được định nghĩa bởi tỷ số: $\theta = \dfrac{d}{D}$
 
-Tầng suất sử dụng kênh truyền được định nghĩa bởi tỷ số: $\theta = \dfrac{d}{D}$
-
-Ví dụ: Trong một giao tiếp giữ người dùng với máy tính trung tâm, người ta tính toán được :
+- Ví dụ: Trong một giao tiếp giữ người dùng với máy tính trung tâm, người ta tính toán được :
 
 - $p = 900 bits, N_t = 200, T = 2700 s, N_c = 0.8, D = 1200 b/s.$
 
 Khi đó
-
 - Mật độ giao thông trung bình là $E = (2700*0.8)/3600=0.6$
 - Tốc độ bit thật sự trong phiên giao dịch là $d= (200*900)/2700 = 67$
 - Tầng suất sử dụng kênh truyền $\theta = (67/1200) =0.06$
