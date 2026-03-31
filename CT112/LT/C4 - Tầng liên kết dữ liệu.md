@@ -42,7 +42,7 @@ Nếu một khung nào đó bị sai -> không xác định được các khung 
 
 (b) Dữ liệu có chứa cờ hiệu và byte ESC.
 
-![3-05.jpg]./.image/c4/(3-05.jpg)
+![Untitled](./.image/c4/3-05.jpg)
 
 ### Phương pháp sử dụng cờ bắt đầu & kết thúc khung cùng với các bit độn
 
@@ -189,7 +189,7 @@ $$
 
 ![Untitled](./.image/c4/Untitled%205.png)
 
-## Giao thức truyền đơn công không ràng buộc (**Unrestricted Simplex Protocol)**
+## Giao thức truyền đơn công không ràng buộc (Unrestricted Simplex Protocol)
 
 Truyền tải thông tin theo một chiều
 
