@@ -11,29 +11,17 @@ Các vấn đề phải quan tâm:
 
 # Số hóa dữ liệu
 
-## Vấn để số hóa dữ liệu
+## Vấn đề số hóa dữ liệu
 
 ![Untitled](./.image/c3/Untitled.png)
 
-| **Âm thanh:**
-Hệ thống : điện thoại
-Bộ mã hóa : micro
-Bộ giải mã : Loa
-Truyền tải : tín hiệu tuần tự hay tín hiệu số | **Ánh tĩnh :**
-Hệ thống: fax
-Bộ mã hóa : scanner
-Bộ giải mã : Bộ thông dịch tập tin
-Truyền tải : Tín hiệu tuần tự hoặc tín hiệu số. |
-| --- | --- |
-| **Dữ liệu tin học:**
-Hệ thống : mạng truyền tin.
-Bộ mã hóa : Bộ điều khiển truyền thông.
-Bộ giải mã: Bộ điều khiển truyền thông
-Truyền tải : Tín hiệu tuần tự hoặc tín hiệu số. | **Truyền hình:**
-Hệ thống : truyền hình quảng bá
-Bộ mã hóa : camera
-Bộ giải mã : antenne + TV
-Truyền tải : Tín hiệu tuần tự hoặc tín hiệu số. |
+
+| Loại thông tin | Hệ thống | Bộ mã hóa | Bộ giải mã | Truyền tải |
+|---|---|---|---|---|
+| **Âm thanh** | Điện thoại | Micro | Loa | Tín hiệu tuần tự hoặc tín hiệu số |
+| **Ảnh tĩnh** | Fax | Scanner | Bộ thông dịch tập tin | Tín hiệu tuần tự hoặc tín hiệu số |
+| **Dữ liệu tin học** | Mạng truyền tin | Bộ điều khiển truyền thông | Bộ điều khiển truyền thông | Tín hiệu tuần tự hoặc tín hiệu số |
+| **Truyền hình** | Truyền hình quảng bá | Camera | Antenn + TV | Tín hiệu tuần tự hoặc tín hiệu số |
 
 ## Mô hình số hóa dữ liệu
 
