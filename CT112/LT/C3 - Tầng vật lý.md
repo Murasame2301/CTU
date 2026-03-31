@@ -90,41 +90,35 @@ Dữ liệu âm thanh và phim ảnh thuộc kiểu tuần tự
 # Kênh truyền
 
 ## Kênh truyền hữu tuyến
+- Sử dụng 3 loại cáp phổ biến:
+  - Cáp đồng trục (coaxial)
+  - Cáp xoắn đôi (twisted pair)
+  - Cáp quang (fiber optic)
 
-Sử dụng 3 loại cáp phổ biến:
-
-- Cáp đồng trục (coaxial)
-- Cáp xoắn đôi (twisted pair)
-- Cáp quang (fiber optic)
-
-Các yếu tố chọn lựa:
-
-- Giá thành
-- Khoảng cách
-- Số lượng máy tính
-- Tốc độ yêu cầu (băng thông)
-
+- Các yếu tố chọn lựa:
+  - Giá thành
+  - Khoảng cách
+  - Số lượng máy tính
+  - Tốc độ yêu cầu (băng thông)
 ### Cáp đồng trục
+- Cáp đồng trục béo (Thick Coaxial cable –RG8/U)
 
-Cáp đồng trục béo (Thick Coaxial cable –RG8/U)
+  - Trở kháng 50 ohm
+  - Dùng trong chuẩn Ethernet 10-BASE5
+  - Dùng đầu nối AUI, BNC, T
+  - Chiều dài tối đa 500 m
+  - Tốc độ tối đa 10Mbps
 
-- Trở kháng 50 ohm
-- Dùng trong chuẩn Ethernet 10-BASE5
-- Dùng đầu nối AUI, BNC, T
-- Chiều dài tối đa 500 m
-- Tốc độ tối đa 10Mbps
+- Cáp đồng trục gầy (Thin Coaxial cable - RG58/U)
+  - Trở kháng 50 ohm
+  - Dùng trong chuẩn Ethernet 10-BASE2
+  - Dùng đầu nối AUI, BNC, T
+  - Chiều dài tối đa 185 m
+  - Tốc độ tối đa 10Mbps
 
-Cáp đồng trục gầy (Thin Coaxial cable - RG58/U)
+- Dùng trong mô hình mạng tuyến tính, chi phí rẻ -> hiện nay ít sử dụng
 
-- Trở kháng 50 ohm
-- Dùng trong chuẩn Ethernet 10-BASE2
-- Dùng đầu nối AUI, BNC, T
-- Chiều dài tối đa 185 m
-- Tốc độ tối đa 10Mbps
-
-Dùng trong mô hình mạng tuyến tính, chi phí rẻ -> hiện nay ít sử dụng
-
-![Untitled](./.image/c3/Untitled%206.png)
+  ![Untitled](./.image/c3/Untitled%206.png)
 
 ### Cáp xoắn đôi
 
