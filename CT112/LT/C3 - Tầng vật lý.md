@@ -156,20 +156,16 @@ Dữ liệu âm thanh và phim ảnh thuộc kiểu tuần tự
 
 ## Kênh truyền vô tuyến
 
-Đặc biệt hữu dụng ở những địa hình mà kênh truyền hữu tuyến không thể thực hiện được như: rừng rậm, đồi núi…
+- Đặc biệt hữu dụng ở những địa hình mà kênh truyền hữu tuyến không thể thực hiện được như: rừng rậm, đồi núi…
 
-Kênh truyền vô tuyến truyền tải thông tin ở tốc độ ánh sáng
-
-- $c$ là tốc độ ánh sáng
-- $f$ là tần số của tín hiệu sóng
-- $\lambda$ là độ dài sóng. Khi đó ta có: $c = \lambda f$
-
-Tín hiệu có tần số càng cao thì độ phát tán càng thấp, ví dụ:
-
-- Sóng điện thoại di động có tần số khoảng 900 Hz
-- Sóng Wifi chuẩn b và g khoảng 2.4Ghz, chuẩn A khoảng 5Ghz
-
-![Untitled](./.image/c3/Untitled%2011.png)
+- Kênh truyền vô tuyến truyền tải thông tin ở tốc độ ánh sáng
+  - $c$ là tốc độ ánh sáng
+  - $f$ là tần số của tín hiệu sóng
+  - $\lambda$ là độ dài sóng. Khi đó ta có: $c = \lambda f$
+- Tín hiệu có tần số càng cao thì độ phát tán càng thấp, ví dụ:
+  - Sóng điện thoại di động có tần số khoảng 900 Hz
+  - Sóng Wi-Fi chuẩn b và g khoảng 2.4Ghz, chuẩn A khoảng 5Ghz
+  ![Untitled](./.image/c3/Untitled%2011.png)
 
 ## Tín hiệu tuần tự & Tín hiệu số
 
