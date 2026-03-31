@@ -80,7 +80,6 @@ Các vấn đề phải quan tâm:
 ## Số hóa âm thanh và phim ảnh
 
 Dữ liệu âm thanh và phim ảnh thuộc kiểu tuần tự
-
 1. **Lấy mẫu**: Với tần số f, ta đo biên độ của tín hiệu -> có được một loạt các số đo.
 2. **Lượng hóa:** xác định một thang đo với giá trị là lũy thừa của 2 và thực hiện việc lấy tương ứng các số đo vào giá trị thanh đo 
 3. **Số hóa:** Mỗi một giá trị sau đó được mã hóa thành các giá trị nhị phân và đặt vào trong các tập tin.
@@ -124,50 +123,36 @@ Dữ liệu âm thanh và phim ảnh thuộc kiểu tuần tự
 
 ![Untitled](./.image/c3/Untitled%207.png)
 
-UTP (Unshielded Twisted Pair): được sử dụng trong hệ thống mạng hình sao
-
-Sử dụng đầu nối RJ45
-
-Chiều dài tối đa: 100m
-
-Khả năng chống nhiễu kém, chỉ nên đi trong nhà
-
-![Untitled](./.image/c3/Untitled%208.png)
-
-Hiện nay được sử dụng phổ biết nhất trong mạng LAN
-
-Sử dụng trong các chuẩn Ethernet sau
-
-- 10 BASE-T: Dùng UTP Cat 3,5, tốc độ tối đa 10Mbps
-- 100 BASE-TX: Dùng UTP Cat 5 trở lên, tốc độ tối đa 100Mbps
-- 1000 BASE-T: Dùng UTP Cat 5e trở lên, tốc độ tối đa 1000Mbps
+- UTP (Unshielded Twisted Pair): được sử dụng trong hệ thống mạng hình sao
+- Sử dụng đầu nối RJ45
+- Chiều dài tối đa: 100m
+- Khả năng chống nhiễu kém, chỉ nên đi trong nhà
+  ![Untitled](./.image/c3/Untitled%208.png)
+- Hiện nay được sử dụng phổ biết nhất trong mạng LAN
+- Sử dụng trong các chuẩn Ethernet sau
+  - 10 BASE-T: Dùng UTP Cat 3,5, tốc độ tối đa 10Mbps
+  - 100 BASE-TX: Dùng UTP Cat 5 trở lên, tốc độ tối đa 100Mbps
+  - 1000 BASE-T: Dùng UTP Cat 5e trở lên, tốc độ tối đa 1000Mbps
 
 ### Cáp quang
+- Cáp quang: được sử dụng trong hệ thống mạng hình sao
+- Sử dụng đầu nối: SC, ST, MJ-RJ, LC
+- Chiều dài tối đa: lên đến hàng trăm Kilomet
+- Không bị nhiễu, suy giảm thấp, băng thông lớn, khó thi công, dễ gãy.
+- Được sử dụng trong mạng LAN để kết nối các toà nhà lại với nhau
+- Sử dụng trong các chuẩn Ethernet sau:
+  - 10 BASE-F: Multimode, Tốc độ tối đa 10Mbps
+  - 100 BASE-FX: Multimode, Tốc độ tối đa 100Mbps
+  - 1000 BASE-SX: Multimode, Tốc độ tối đa 1000Mbps (330 → 550m)
+  - 1000 BASE-LH: Singlemode, Tốc độ tối đa 1000Mbps
 
-Cáp quang: được sử dụng trong hệ thống mạng hình sao
-
-Sử dụng đầu nối: SC, ST, MJ-RJ, LC
-
-Chiều dài tối đa: lên đến hàng trăm Kilomet
-
-Không bị nhiễu, suy giảm thấp, băng thông lớn, khó thi công, dễ gãy.
-
-Được sử dụng trong mạng LAN để kết nối các toà nhà lại với nhau
-
-Sử dụng trong các chuẩn Ethernet sau:
-
-- 10 BASE-F: Multimode, Tốc độ tối đa 10Mbps
-- 100 BASE-FX: Multimode, Tốc độ tối đa 100Mbps
-- 1000 BASE-SX: Multimode, Tốc độ tối đa 1000Mbps (330 → 550m)
-- 1000 BASE-LH: Singlemode, Tốc độ tối đa 1000Mbps
-
-1. C**áp quang chế độ đơn:** Các tia sáng di chuyển bằng cách phản xạ giữa bề mặt của 2 môi trường có chiết suất khác nhau (n2>n1) -> tia sáng được tập trung nên truyền đi nhanh
+1. **Cáp quang chế độ đơn:** Các tia sáng di chuyển bằng cách phản xạ giữa bề mặt của 2 môi trường có chiết suất khác nhau (n2>n1) -> tia sáng được tập trung nên truyền đi nhanh
 2. **Chế độ đa không thẩm thấu:** Các tia sáng di chuyển bằng cách phản xạ giữa bề mặt của 2 môi trường có chiết suất khác nhau $n_2 > n_1$) → mất nhiều thời gian hơn để các sóng di chuyển so với chế độ đơn
 3. **Chế độ đa thẩm thấu:** Chiết suất tăng dần từ trung tâm về vỏ của ống → sự phản xạ trong trường hợp này rất nhẹ nhàng
 
-![Untitled](./.image/c3/Untitled%209.png)
+  ![Untitled](./.image/c3/Untitled%209.png)
 
-![Untitled](./.image/c3/Untitled%2010.png)
+  ![Untitled](./.image/c3/Untitled%2010.png)
 
 ## Kênh truyền vô tuyến
 
