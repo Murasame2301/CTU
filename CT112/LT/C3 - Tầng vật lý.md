@@ -56,29 +56,26 @@ Các vấn đề phải quan tâm:
 
   - Ví dụ: kí tự "a" dạng 16-bit sẽ được dịch thành HAI kí tự: kí tự thứ nhất là NUL (00000000), và kí tự thứ hai là kí tự ASCII "a" (01100001).
 
-Bảng mã Unicode 8-bit (UTF-8)
-
-- Một kí tự Unicode sẽ được mã hóa thành một hay nhiều chuỗi 8-bit để các hệ ASCII có thể nhận diện.
-- Ðể tương thích với ASCII, 128 kí tự Unicode thuộc bảng mã ASCII được mã hóa thành một chuỗi 8-bit tương đương với giá trị nhị phân của mã.
-- Các kí tự Unicode có mã lớn hơn được mã hoá thành HAI hoặc BA chuỗi 8-bit (byte)
-- Trong UTF-8, byte đầu tiên của một kí tự Unicode sẽ chỉ định có bao nhiêu byte đi kèm theo dành cho kí tự đó.
+- **Bảng mã Unicode 8-bit (UTF-8)**
+  - Một kí tự Unicode sẽ được mã hóa thành một hay nhiều chuỗi 8-bit để các hệ ASCII có thể nhận diện.
+  - Ðể tương thích với ASCII, 128 kí tự Unicode thuộc bảng mã ASCII được mã hóa thành một chuỗi 8-bit tương đương với giá trị nhị phân của mã.
+  - Các kí tự Unicode có mã lớn hơn được mã hoá thành HAI hoặc BA chuỗi 8-bit (byte)
+  - Trong UTF-8, byte đầu tiên của một kí tự Unicode sẽ chỉ định có bao nhiêu byte đi kèm theo dành cho kí tự đó.
 
 ## Số hóa hình ảnh tĩnh
 
-Ảnh số: được xây dựng từ các đường thẳng và mỗi đường thẳng được xây dựng bằng các điểm
+- Ảnh số: được xây dựng từ các đường thẳng và mỗi đường thẳng được xây dựng bằng các điểm
+- Ví dụ: một ảnh theo chuẩn VGA với độ phân giải 640x480 có nghĩa là một ma trận với 480 đường ngang và mỗi đường ngang gồm 640 điểm ảnh
 
-Ví dụ: một ảnh theo chuẩn VGA với độ phân giải 640x480 có nghĩa là một ma trận với 480 đường ngang và mỗi đường ngang gồm 640 điểm ảnh
+  ![Untitled](./.image/c3/Untitled%204.png)
 
-![Untitled](./.image/c3/Untitled%204.png)
+- Một điểm ảnh được mã hoá tuỳ theo chất lượng của ảnh:
 
-Một điểm ảnh được mã hoá tuỳ theo chất lượng của ảnh:
-
-- Ảnh đen trắng: sử dụng 1 bit để mã hoá một điểm ảnh.
-- Ảnh 16 mức xám: sử dụng 4 bits / điểm ảnh
-- Ảnh 256 mức xám: sử dụng 8 bits / điểm ảnh
-- Ảnh màu: là sự phối hợp của 03 màu cơ bản Đỏ (Red), xanh lá (Green), xanh dương (Blue), do đó 1 điểm ảnh được biểu diễn bởi: `aR + bG +cB` → sử dụng 24 bit để mã hoá
-
-Kích thước của ảnh màu thường lớn, vì thế chung ta cần có các phương nén kích thước của các ảnh: GIF, JPEG
+  - Ảnh đen trắng: sử dụng 1 bit để mã hoá một điểm ảnh.
+  - Ảnh 16 mức xám: sử dụng 4 bits / điểm ảnh
+  - Ảnh 256 mức xám: sử dụng 8 bits / điểm ảnh
+  - Ảnh màu: là sự phối hợp của 03 màu cơ bản Đỏ (Red), xanh lá (Green), xanh dương (Blue), do đó 1 điểm ảnh được biểu diễn bởi: `aR + bG +cB` → sử dụng 24 bit để mã hoá
+    - Kích thước của ảnh màu thường lớn, vì thế chung ta cần có các phương nén kích thước của các ảnh: GIF, JPEG
 
 ## Số hóa âm thanh và phim ảnh
 
