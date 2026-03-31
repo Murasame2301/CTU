@@ -29,24 +29,20 @@ Các vấn đề phải quan tâm:
 
 ## Số hóa văn bản
 
-Hệ thống mã hoá văn bản đầu tiên là mã Morse
+- **Hệ thống mã hoá văn bản đầu tiên là mã Morse**
 
-Là bộ mã nhị phân sử dụng 02 ký tự “.” và “\_” để mã hoá văn bản ít ký tự được mã hoá, sử dụng các chuỗi không đều nhau -> không được sử dụng để số hoá dữ liệu
+  - Là bộ mã nhị phân sử dụng 02 ký tự “.” và “\_” để mã hoá văn bản ít ký tự được mã hoá, sử dụng các chuỗi không đều nhau -> không được sử dụng để số hoá dữ liệu
+    ![Untitled](./.image/c3/Untitled%202.png)
 
-ASCII, ANSI, EBCDIC, Unicode: là các bộ mã được sử dụng hiện nay
+  -  ASCII, ANSI, EBCDIC, Unicode: là các bộ mã được sử dụng hiện nay
+- **Bảng mã ASCII** (American Standard Code for Informatics Interchange) chuẩn:
+  - Sử dụng 7 bit để mã hoá thông tin (128 ký tự)
+  - Ví dụ: ký tự “a” được mã là 1100001
 
-![Untitled](./.image/c3/Untitled%202.png)
-
-Bảng mã ASCII (American Standard Code for Informatics Interchange) chuẩn:
-
-- Sử dụng 7 bit để mã hoá thông tin (128 ký tự)
-- Ví dụ: ký tự “a” được mã là 1100001
-
-Bảng mã ASCII mở rộng
-
-- Sử dụng 8 bit để mã hoá thông tin (256 ký tự)
-- Việc mở rộng không được thống nhất → khó trao đổi thông tin
-- Điển hình là ANSI (American Nation Standards Institute)
+  - Bảng mã ASCII mở rộng
+    - Sử dụng 8 bit để mã hoá thông tin (256 ký tự)
+    - Việc mở rộng không được thống nhất → khó trao đổi thông tin
+    - Điển hình là ANSI (American Nation Standards Institute)
 
 Mã EBCDIC (Extended Binary-Coded Decimal Interchange Code): chỉ được sử dụng trong các hệ thống của IBM
 
