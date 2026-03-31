@@ -32,7 +32,8 @@ Các vấn đề phải quan tâm:
 - **Hệ thống mã hoá văn bản đầu tiên là mã Morse**
 
   - Là bộ mã nhị phân sử dụng 02 ký tự “.” và “\_” để mã hoá văn bản ít ký tự được mã hoá, sử dụng các chuỗi không đều nhau -> không được sử dụng để số hoá dữ liệu
-    ![Untitled](./.image/c3/Untitled%202.png)
+
+   ![Untitled](./.image/c3/Untitled%202.png)
 
   -  ASCII, ANSI, EBCDIC, Unicode: là các bộ mã được sử dụng hiện nay
 - **Bảng mã ASCII** (American Standard Code for Informatics Interchange) chuẩn:
@@ -44,17 +45,16 @@ Các vấn đề phải quan tâm:
     - Việc mở rộng không được thống nhất → khó trao đổi thông tin
     - Điển hình là ANSI (American Nation Standards Institute)
 
-Mã EBCDIC (Extended Binary-Coded Decimal Interchange Code): chỉ được sử dụng trong các hệ thống của IBM
+- **Mã EBCDIC** (Extended Binary-Coded Decimal Interchange Code): chỉ được sử dụng trong các hệ thống của IBM
 
 ![Untitled](./.image/c3/Untitled%203.png)
 
-Bảng mã Unicode 16-bit (UTF-16)
+- **Bảng mã Unicode 16-bit (UTF-16)**
+  - **Ưu điểm**: cho phép 65536 ký tự; tương thích với bộ mã ASCII ở 128 ký tự đầu tiên (ASCII là tập con của Unicode)
+  - **Khuyết điểm**: hầu hết các máy tính vẫn còn dùng bộ mã ASCII -> chỉ xử lý dữ liệu theo từng chuỗi 8-bit
+  - Các máy tính sẽ lầm lẫn khi xử lý các kí tự Unicode được mã hóa dưới dạng 16-bit (UTF-16).<br>
 
-- Ưu điểm: cho phép 65536 ký tự; tương thích với bộ mã ASCII ở 128 ký tự đầu tiên (ASCII là tập con của Unicode)
-- Khuyết điểm: hầu hết các máy tính vẫn còn dùng bộ mã ASCII -> chỉ xử lý dữ liệu theo từng chuỗi 8-bit
-- Các máy tính sẽ lầm lẫn khi xử lý các kí tự Unicode được mã hóa dưới dạng 16-bit (UTF-16).
-
-Ví dụ: kí tự "a" dạng 16-bit sẽ được dịch thành HAI kí tự: kí tự thứ nhất là NUL (00000000), và kí tự thứ hai là kí tự ASCII "a" (01100001).
+  - Ví dụ: kí tự "a" dạng 16-bit sẽ được dịch thành HAI kí tự: kí tự thứ nhất là NUL (00000000), và kí tự thứ hai là kí tự ASCII "a" (01100001).
 
 Bảng mã Unicode 8-bit (UTF-8)
 
