@@ -1,31 +1,24 @@
 ﻿# TẦNG VẬN CHUYỂN
 
-# Mục đích
-
-- Vai trò của tầng vận chuyển và các chức năng mà tầng vận chuyển cung cấp cho tầng ứng dụng
-- Ý nghĩa và cơ chế thiết lập nối kết và giải phóng nối kết cho các nối kết điểm – điểm
-- Chi tiết về hai giao thức TCP và UDP thuộc tầng vận chuyển
-
 # Nhiệm vụ của tầng vận chuyển
 
-- Tầng mạng đảm bảo truyền tải kiểu
-- Host -to- Host
-- Tầng vận chuyển đảm bảo truyền tải kiểu End point –to- End point
-- End point là các chương trình ứng dụng chạy trên các host.
+- **Tầng mạng** đảm bảo truyền tải kiểu **Host -to- Host**
+- **Tầng vận chuyển** đảm bảo truyền tải kiểu **End point –to- End point**
+- **End point** là các **chương trình ứng dụng** chạy trên các host.
 - Cung cấp dịch vụ vận chuyển gói tin hiệu quả, tin cậy và tiết kiệm.
 
 # Vị trí của tầng vận chuyển
 
-![Untitled](./.image/c7/slide04_01.png)
+![Vị trí của tầng vận chuyển](./.image/c7/slide04_01.png)
 
 # Dịch vụ cung cấp bởi tầng vận chuyển
 
 - Hai kiểu dịch vụ
-- Có nối kết :
-  - Thiết lập nối kết,
-  - Truyền dữ liệu
-  - Hủy nối kết
-- Không nối kết
+  - Có nối kết :
+    - Thiết lập nối kết,
+    - Truyền dữ liệu
+    - Hủy nối kết
+  - Không nối kết
 - Các hàm dịch vụ cơ sở để triệu gọi các dịch vụ vận chuyển, các hàm này là đơn giản, duy nhất và độc lập với các hàm cơ sở ở tầng mạng.
 
 ## Các hàm dịch vụ cơ sở - Có nối kết
