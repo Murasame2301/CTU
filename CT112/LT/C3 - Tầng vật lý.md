@@ -26,7 +26,8 @@ Các vấn đề phải quan tâm:
 ## Mô hình số hóa dữ liệu
 
 ![Untitled](./.image/c3/Untitled%201.png)
-
+- Trong thực tế dữ liệu được thể hiện dưới dạng đa phương tiện
+- Mỗi loại dữ liệu được mã hóa theo các cách khác nhau -> kết quả cuối cùng: **một chuỗi các số 0 và 1**.
 ## Số hóa văn bản
 
 - **Hệ thống mã hoá văn bản đầu tiên là mã Morse**
