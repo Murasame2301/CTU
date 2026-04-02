@@ -3,30 +3,26 @@
 # Giới thiệu về tầng ứng dụng
 
 - Application: là các tiến trình phân tán và giao tiếp
-- Chạy trên các máy tính mạng ở không gian người dùng (user space)
-- Trao đổi các thông điệp
-- e.g., email, ftp, Web
+  - Chạy trên các máy tính mạng ở không gian người dùng (user space)
+  - Trao đổi các thông điệp
+  - e.g., email, ftp, Web
 - Application-layer protocols
-- Là một thành phần của ứng dụng.
-- Định nghĩa các thông điệp được trao đổi và các tác vụ được thực hiện
-- Sử dụng các dịch vụ của tầng vận chuyển (TCP/UDP).
-
-![Untitled](./.image/c8/slide02.png)
+  - Là một thành phần của ứng dụng.
+  - Định nghĩa các thông điệp được trao đổi và các tác vụ được thực hiện
+  - Sử dụng các dịch vụ của tầng vận chuyển (TCP/UDP).
 
 # Mô hình ứng dụng client – server
 
 - Các ứng dụng được thiết kế gồm hai phần: client và server
 - Client:
-- Khởi tạo cuộc giao tiếp với server
-- Yêu cầu các dịch vụ của Server
-- Web: Web browser
-- E-mail: Chương trình gởi nhận mail
+  - Khởi tạo cuộc giao tiếp với server
+  - Yêu cầu các dịch vụ của Server
+  - Web: Web browser
+  - E-mail: Chương trình gởi nhận mail
 - Server:
-- Cung cấp các dịch vụ được yêu cầu bởi client
-- Web server: gởi các trang web về client
-- Mail server: phân phát email
-
-![Untitled](./.image/c8/slide03.png)
+  - Cung cấp các dịch vụ được yêu cầu bởi client
+  - Web server: gởi các trang web về client
+  - Mail server: phân phát email
 
 # Các dịch vụ (ứng dụng) tiêu biểu
 
@@ -91,9 +87,7 @@
 - Domain Namespace: là cơ chế đặt tên có cấu trúc có thứ bậc của DNS
 - Khi domain con được (Sub-domain) tạo ra, theo sau tên của nó là tên của domain cha
 - Tên của domain con là duy nhất trong domain cha.
-- => Ta có thể xác định được vi trí của một domain trong hệ thống phân cấp một cách dễ ràng
-
-![Untitled](./.image/c8/slide09.png)
+  <br> => Ta có thể xác định được vi trí của một domain trong hệ thống phân cấp một cách dễ ràng
 
 # Các nguyên tắc để tạo Domain Namespace
 
