@@ -49,15 +49,10 @@
 ![Untitled](./.image/c7/slide09_01.png)
 
 ## Thiết lập nối kết
-//Cần sửa
-- Three-way hand-shake:
-  ![Three-way hand-shake](./.image/c7/slide10_01.png)
-  - Hoạt động bình thường.
 
-- Bản CR bị trùng lắp
-    ![Untitled](./.image/c7/slide11_01.png)
+![alt text](./.image/c7/slide10.png)
 
-- Cả CR và ACK đều bị trùng lắp
+![alt text](./.image/c7/slide11.png)
 
 ## Giải phóng nối kết
 
@@ -74,22 +69,9 @@
 - Một nút phải tiếp tục nhận dữ liệu sau khi đã gởi đi yêu cầu giải phóng nối kết (DISCONNECT REQUEST – CR), cho đến khi nhận được chấp thuận hủy bỏ nối kết của bên đối tác đó
 - Sử dụng phương pháp hủy nối kết ba chiều cùng với bộ định thời
 
-- Bình thường:
+![alt text](./.image/c7/slide15.png)
 
-![Bình thường](./.image/c7/slide15_01.png)
-
-- Khung ACK cuối cùng bị mất
-
-![Khung ACK cuối cùng bị mất](./.image/c7/slide15_02.png)
-
-- Trả lời bị mất
-
-![Trả lời bị mất](./.image/c7/slide16_01.png)
-
-- Trả lời mất và các gói tin
-- DR theo sau cũng bị mất
-
-![Untitled](./.image/c7/slide16_02.png)
+![alt text](./.image/c7/slide16.png)
 
 ## Điều khiển thông lượng
 
@@ -140,8 +122,8 @@
 (Transmission Control Protocol)
 
 - TCP là giao thức cung cấp dịch vụ vận chuyển tin cậy, hướng nối kết theo kiểu truyền thông tin bằng cách phân luồng các bytes.
-- TCP là giao thức truyền song công, hỗ trợ cơ chế đa hợp (nhiều tiến trình trên một máy có thể đồng thời thực hiện đối thoại với đối tác của chúng)
-- TCP là giao thức hướng bytes (bên gởi ghi các byte lên nối kết TCP, bên nhận đọc các byte từ nối kết TCP đó)
+- TCP là giao thức truyền song công, hỗ trợ cơ chế đa hợp (_nhiều tiến trình trên một máy có thể đồng thời thực hiện đối thoại với đối tác của chúng_)
+- TCP là giao thức hướng bytes (_bên gởi ghi các byte lên nối kết TCP, bên nhận đọc các byte từ nối kết TCP đó_)
 
 ![Untitled](./.image/c7/slide25_01.png)
 
