@@ -87,6 +87,8 @@ Dữ liệu âm thanh và phim ảnh thuộc kiểu tuần tự
 
 ![Untitled](./.image/c3/Untitled%205.png)
 
+Dung lượng file nhận được phụ thuộc hoàn thoàn vào tần số lấy mẫu **f** và số lượng bit dùng để mã hóa giá trị thang đo **p** (chiều dài mã cho mẫu giá trị)
+
 # Kênh truyền
 
 ## Kênh truyền hữu tuyến
