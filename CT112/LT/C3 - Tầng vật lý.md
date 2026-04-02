@@ -181,7 +181,7 @@ $\rightarrow$ Tín hiệu có **độ dài sóng càng lớn** thì khoảng cá
 
 ## Tín hiệu tuần tự & Tín hiệu số
 
-- Dữ liệu (các bits 0, 1) được truyền từ thiết bị truyền sang thiết bị nhận bằng các tín hiệu tuần tự hay tín hiệu số
+- Dữ liệu (các bits 0, 1) được truyền từ thiết bị truyền sang thiết bị nhận bằng các **tín hiệu tuần tự** hay **tín hiệu số**
   - Tín hiệu tuần tự
     ![Tín hiệu tuần tự](./.image/c3/Untitled%2012.png)
   - Tín hiệu số
@@ -192,7 +192,6 @@ Sóng dạng hình sin:
 
 - Là dạng tín hiệu tuần tự đơn giản nhất (không kết thúc hoặc suy giảm sau một khoảng thời gian)
 - Dễ dàng tạo ra được.
-
 Một nghiên cứu cụ thể đã chỉ ra
 
 > **Bất kỳ một dạng tín hiệu nào cũng có thể được biểu diễn lại bằng các sóng hình sin**
