@@ -49,7 +49,7 @@
 ![Untitled](./.image/c7/slide09_01.png)
 
 ## Thiết lập nối kết
-
+//Cần sửa
 - Three-way hand-shake:
   ![Three-way hand-shake](./.image/c7/slide10_01.png)
   - Hoạt động bình thường.
