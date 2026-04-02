@@ -42,21 +42,20 @@
 
 - Khi một tiến trình muốn thiết lập kết nối tới một tiến trình khác ở xa, nó phải chi ra rằng nó muốn kết nối với tiến trình nào.
 - Địa chỉ tiến trình là TSAP (Transport Service Access Point)
-- Mạng Internet là dùng số hiệu cổng (port),
-- Mạng ATM là AAL-SAP (ATM Adaption Layer –Service Access Point).
+  - Mạng Internet là dùng số hiệu cổng (port),
+  - Mạng ATM là AAL-SAP (ATM Adaption Layer –Service Access Point).
 - Ở tầng mạng được gọi là NSAP
 
 ![Untitled](./.image/c7/slide09_01.png)
 
 ## Thiết lập nối kết
 
-![Untitled](./.image/c7/slide10_01.png)
+- Three-way hand-shake:
+  ![Three-way hand-shake](./.image/c7/slide10_01.png)
+  - Hoạt động bình thường.
 
-- Three-way hand-shake
-- Hoạt động bình thường.
 - Bản CR bị trùng lắp
-
-![Untitled](./.image/c7/slide11_01.png)
+    ![Untitled](./.image/c7/slide11_01.png)
 
 - Cả CR và ACK đều bị trùng lắp
 
@@ -75,17 +74,17 @@
 - Một nút phải tiếp tục nhận dữ liệu sau khi đã gởi đi yêu cầu giải phóng nối kết (DISCONNECT REQUEST – CR), cho đến khi nhận được chấp thuận hủy bỏ nối kết của bên đối tác đó
 - Sử dụng phương pháp hủy nối kết ba chiều cùng với bộ định thời
 
-- Bình thường
+- Bình thường:
 
-![Untitled](./.image/c7/slide15_01.png)
+![Bình thường](./.image/c7/slide15_01.png)
 
 - Khung ACK cuối cùng bị mất
 
-![Untitled](./.image/c7/slide15_02.png)
+![Khung ACK cuối cùng bị mất](./.image/c7/slide15_02.png)
 
 - Trả lời bị mất
 
-![Untitled](./.image/c7/slide16_01.png)
+![Trả lời bị mất](./.image/c7/slide16_01.png)
 
 - Trả lời mất và các gói tin
 - DR theo sau cũng bị mất
