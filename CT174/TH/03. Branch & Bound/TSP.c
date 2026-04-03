@@ -1,144 +1,153 @@
 #include <stdio.h>
-#include <malloc.h>
+#define size 100
+//
+typedef struct{
+	float do_dai;
+	int dau, cuoi;
+	int da_dung;
+}canh;
 
-#define MAX_N 100
-#define MIN_F 3.4e38
-
-typedef struct {
-    float length;
-    int first, last, mark;
-} Edge;
-
-typedef struct {
-    int n;
-    Edge E[MAX_N][MAX_N];
-} Graph;
-
-void readFile(Graph *G){
-    FILE *f = fopen("TSP1.txt", "r");
-    fscanf(f,"%d", &G->n);
-    for(int i = 0; i < G->n; i++){
-        for(int j = 0; j < G->n; j++){
-            fscanf(f, "%f", &G->E[i][j].length);
-            G->E[i][j].first = i;
-            G->E[i][j].last  = j;
-            G->E[i][j].mark  = 0;
-        }
-    }
-    fclose(f);
+//
+void read_file (char file_name[], canh a[][size], int *n){
+	int i, j;
+	FILE *f;
+	f = fopen(file_name, "r");
+	if (f == NULL){
+		printf("Loi mo file !!!\n");
+		return;
+	}
+	
+	fscanf(f, "%d", n);
+	
+	for(i = 0; i < *n; i++)
+		for(j = 0; j < *n; j++){
+			fscanf(f, "%f", &a[i][j].do_dai);
+			a[i][j].dau = i;
+			a[i][j].cuoi = j;
+			a[i][j].da_dung = 0;
+		}
+	fclose(f);
+}
+//
+void in_ma_tran(canh a[][size], int n){
+	int i, j;
+	printf("\nMa tran Trong So cua do thi\n");
+	for(i = 0; i < n; i++){
+		for(j = 0; j < n; j++)
+			printf(" %c%c =%5.2f   ", a[i][j].dau+97, a[i][j].cuoi+97, a[i][j].do_dai);
+		printf("\n");
+	}
+}
+//
+void in_PA(canh PA[], int n){
+	int i;
+	float sum = 0.0;
+	printf("\nPHUONG AN TIM DUOC: \n");
+	for(i = 0; i < n; i++){
+		sum += PA[i].do_dai;
+		printf("  Canh %c%c = %5.2f\n", PA[i].dau+97, PA[i].cuoi+97, PA[i].do_dai);
+	}
+	printf("CHU TRINH : ");
+	for(i = 0; i < n; i++){
+		printf("%c", PA[i].dau+97);
+		printf("-> ");
+	}
+	printf("%c", PA[0].dau + 97);
+	printf("\nTong do dai cac canh cua chu trinh = %5.2f\n", sum);
 }
 
-void printGraph(Graph *G){
-    printf("Ma tran trong so cua do thi:\n");
-    for(int i = 0; i < G->n; i++){
-        for(int j = 0; j < G->n; j++){
-            printf(" %c%c =%5.2f  ", G->E[i][j].first+97, G->E[i][j].last+97, G->E[i][j].length);
-        }
-        printf("\n");
-    }
+//
+float canh_NN(canh a[][size], int n){
+	float Cmin = 3.40282e+38;
+	int i, j;
+	for(i = 0; i < n; i++)
+		for(j = 0; j < n; j++)
+			if(i != j && !a[i][j].da_dung && a[i][j].do_dai < Cmin)
+				Cmin = a[i][j].do_dai;
+	return Cmin;
 }
 
-void printResult(Edge x[], int n){
-    printf("Phuong an tim duoc:\n");
-    for(int i = 0; i < n; i++){
-        printf("  Canh %c%c = %5.2f\n", x[i].first+97, x[i].last+97, x[i].length);        
-    }
-    float sum = 0;
-    printf("Chu trinh:\n  ");
-    for(int i = 0; i < n; i++){
-        printf("%c -> ", x[i].first+97);
-        sum += x[i].length;
-    }
-    printf("%c\n", x[0].first+97);
-    printf("Tong do dai cac canh cua chu trinh = %5.2f\n\n", sum);
+//
+float can_duoi(canh a[][size], float TGT, int n, int i){
+	return TGT + (n- i) * canh_NN(a, n);
 }
 
-int isCycle(Edge x[], int n, int next){
-    for(int i = 0; i < n; i++){
-        if(next == x[i].first)
-            return 1;
-    }
-    return 0;
+//
+int co_chu_trinh(canh x[], int k, int ke_tiep){
+	int i = 0, co_CT = 0;
+	while (i < k && !co_CT)
+		if (ke_tiep == x[i].dau) co_CT = 1;
+		else i++;
+	return co_CT;
 }
 
-float lowerBound(Graph *G, float cost, int level){
-    float min_Edge = MIN_F;
-    for(int i = 0; i < G->n; i++){
-        for(int j = 0; j < G->n; j++){
-            if(i != j && !G->E[i][j].mark && G->E[i][j].length < min_Edge)
-                min_Edge = G->E[i][j].length;
-        }
-    }
-    return cost+(G->n - level)*min_Edge;
+//
+void Cap_Nhat_PA_TNTT(canh a[][size], int n, float TGT, float *GNNTT, canh x[], canh PA[]){
+	int i;
+	x[n-1] = a[x[n-2].cuoi][x[0].dau];
+	TGT = TGT + x[n-1].do_dai;
+	if(*GNNTT > TGT){
+		*GNNTT = TGT;
+		for(i = 0; i < n; i++) PA[i] = x[i];
+	}
 }
 
-Edge result[MAX_N];
-
-void updateResult(Graph *G, float cost, float *final_cost, Edge x[]){
-    int n = G->n;
-    x[n-1] = G->E[x[n-2].last][x[0].first];
-    cost += x[n-1].length;
-    if(cost < *final_cost){
-        *final_cost = cost;
-        for(int i = 0; i < n; i++){
-            result[i] = x[i];
-        }
-    }
+//
+void Nhanh_Can(canh a[][size], int n, int i, int dau, float *TGT, float *CD, float *GNNTT, canh x[], canh PA[]){
+	int j;
+	for(j = 0; j < n; j++)
+		if (dau != j && !a[dau][j].da_dung && !co_chu_trinh(x, i, j)){
+			
+			*TGT = *TGT + a[dau][j].do_dai;
+			*CD = can_duoi(a, *TGT, n, i+1);
+			if(*CD < *GNNTT){
+				x[i] = a[dau][j];
+				a[dau][j].da_dung=1;
+				a[j][dau].da_dung = 1;
+				if(i == n-2){
+					Cap_Nhat_PA_TNTT(a, n, *TGT, GNNTT, x, PA);
+				}
+				else{
+					Nhanh_Can(a, n, i+1, j, TGT, CD, GNNTT, x, PA);
+				}
+			}
+			*TGT = *TGT - a[dau][j].do_dai;
+			a[dau][j].da_dung = 0;
+			a[j][dau].da_dung = 0;
+		}
 }
 
-void solve(Graph *G, int i, int current, float p_cost, float *final_cost, Edge x[]){    
-    int n = G->n;
-    for(int next = 0; next < n; next++){
-        if(current != next && !G->E[current][next].mark && !isCycle(x, i, next)){
-            float cost, lbound;
-            cost = p_cost + G->E[current][next].length;
-            lbound = lowerBound(G, cost, i+1);
-            if(lbound < *final_cost){
-                x[i] = G->E[current][next];
-                G->E[current][next].mark = 1;
-                G->E[next][current].mark = 1;
-                if(i == n-2)
-                    updateResult(G, cost, final_cost, x);
-                else
-                    solve(G, i+1, next, cost, final_cost, x);
-            }
-            G->E[current][next].mark = 0;
-            G->E[next][current].mark = 0;
-        }
-    }
+void reset(canh a[][size], int n){
+	int i, j;
+	for(i = 0; i < n; i++)
+		for (j = 0; j < n; j++)
+			a[i][j].da_dung = 0;
 }
 
-void reset(Graph *G){
-    for(int i = 0; i < G->n; i++){
-        for(int j = 0; j < G->n; j++){
-            G->E[i][j].mark = 0;
-        }
-    }
-}
 
 int main(){
-    Graph G;
-    readFile(&G);    
-    printf("TSP su dung thuat toan NHANH CAN:\n\n");
-    Edge x[MAX_N];    
-    while(1){
-        printGraph(&G);
-        reset(&G);
-        float final_cost = MIN_F;
-        char s;
-        do {
-            printf("Chon thanh pho xuat phat (a,.., e): ");
-            scanf("\n%c", &s);
-        } while (s < 'a' || s > 'e');
-        solve(&G, 0, s-97, 0, &final_cost, x);
-        printResult(result, G.n);        
-        do{
-            printf("Tiep tuc (Y/N)? ");
-            scanf("\n%c", &s);
-            if(s == 'n' || s == 'N')
-                return 0;
-        } while(s != 'y' && s != 'Y');
-     
-    }
-        
+	canh a[size][size];
+	int n;
+	printf("\nPhuong an TSP dung thuat toan NHANH CAN:\n");
+	read_file("TSP1.txt", a, &n);
+	canh PA[n];
+	canh x[n];
+	char tpxp, yn;
+	while (1){
+		fflush(stdin);
+		in_ma_tran(a, n);
+		float TGT = 0.0, CD = 0.0, GNNTT = 3.40282e+38;
+		printf("\nXuat phat tu thanh pho nao? ");
+		printf("\n Nhap mot trong cac thanh pho tu a den %c: ", n-1+97);
+		scanf(" %c", &tpxp);
+		Nhanh_Can(a, n, 0, tpxp-97, &TGT, &CD, &GNNTT, x, PA);
+		in_PA(PA, n);
+		fflush(stdin);
+		printf("\nTiep tuc Y/N?");
+		scanf(" %c", &yn);
+		if(yn == 'N' || yn == 'n')
+			break;
+		reset(a, n);
+	}
+	return 0;
 }
