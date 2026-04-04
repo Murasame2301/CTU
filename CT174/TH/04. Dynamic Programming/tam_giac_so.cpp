@@ -101,7 +101,7 @@ void PrintPA(int PA[], int n){
 	printf("%d", PA[0]);
 	for(i=1; i<n; i++)	printf(" => %d", PA[i]);
 	printf("\n\nTong cac so tren duong di la %d\n", GiaPA(PA,n));
-}	
+}
 
 int main(){
 	int a[size][size];
