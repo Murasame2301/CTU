@@ -54,14 +54,14 @@ void greddy(Tien t[], int n, int tienrut, int *tienthua){
 
 void inDS(Tien t[],int n, int tienrut, int tienthua){
     int i;
-    printf("bai toan ATM:\n");
+    printf("Bai toan ATM:\n");
     printf("|-----|----------|--------------------|-----|\n");
     for(i=0;i<n;i++){
         printf("|%-5d|%-10d|%-20s|%5d|\n",i+1,t[i].sotien,t[i].loaitien,t[i].PA);
     }
     printf("|-----|----------|--------------------|-----|\n");
-    printf("tien can rut: %d\n",tienrut);
-    printf("tien da rut: %d\n",tienrut-tienthua);
+    printf("Tien can rut: %d\n",tienrut);
+    printf("Tien da rut: %d\n",tienrut-tienthua);
 }
 
 int main(){
