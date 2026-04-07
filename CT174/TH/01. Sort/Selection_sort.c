@@ -11,11 +11,11 @@ typedef struct{
 } record;
 
 void swap(record *a, record *b){
-	record temp;
-	temp = *a;
+	record tmp = *a;
 	*a = *b;
-	*b = temp;
+	*b = tmp;
 }
+
 
 void selectionSort(record a[], int n){
 	for(int i = 0; i < n-1;i++){

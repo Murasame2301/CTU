@@ -1,6 +1,5 @@
 #include <stdio.h>
-
-#define MAX_N 100
+#define size 50
 
 typedef int keytype;
 typedef float othertype;
@@ -11,40 +10,35 @@ typedef struct{
 } record;
 
 void swap(record *a, record *b){
-	record temp;
-	temp = *a;
+	record tmp = *a;
 	*a = *b;
-	*b = temp;
+	*b = tmp;
 }
 
 int findPivot(record a[], int i, int j){
 	keytype firstkey = a[i].key;
 	for(int k = i+1; k <= j; k++){
-		if(a[k].key != firstkey){
-			return (a[k].key > firstkey)?(k):(i);
-		}
+		if(a[k].key != firstkey)
+			return (a[k].key > firstkey)?k:i;
 	}
 	return -1;
 }
 
 int partition(record a[], int L, int R, keytype pivot){
-	while(L <= R){
-		while(a[L].key < pivot)
-			L++;
-		while(a[R].key >= pivot)
-			R--;
-		if(L < R)
-			swap(&a[L], &a[R]);
+	while (L <= R){
+		while (a[L].key < pivot) L++;
+		while (a[R].key >= pivot) R--;
+		if(L < R) swap(&a[L], &a[R]);
 	}
 	return L;
 }
 
-void quickSort(record a[], int i, int j){
-	int pivotidx = findPivot(a, i, j);
+void quickSort(record a[], int L, int R){
+	int pivotidx = findPivot(a,L,R);
 	if(pivotidx != -1){
-		int k = partition(a, i, j, a[pivotidx].key);
-		quickSort(a, i, k-1);
-		quickSort(a, k, j);
+		int k = partition(a,L,R,a[pivotidx].key);
+		quickSort(a,L,k-1);
+		quickSort(a,k,R);
 	}
 }
 
@@ -61,20 +55,25 @@ void readFile(record a[], int *n){
 }
 
 
-void printData(record a[], int n){
-	for(int i = 0; i < n; i++)
-		printf("%3d %5d %8.2f\n", i+1, a[i].key, a[i].other);
+void printData(record a[], int n, int m){
+	if(n < m)
+		for(int i = n; i < m; i++)
+			printf("%3d %5d %8.2f\n", i+1, a[i].key, a[i].other);
+	else
+		for(int i = n-1; i >= m; i--){
+			printf("%3d %5d %8.2f\n", n-i, a[i].key, a[i].other);
+		}
 }
 
 int main() {
-	record a[MAX_N];
+	record a[size];
 	int n = 0;
-	printf("Thuat toan Bubble Sort\n");
+	printf("Thuat toan Quick Sort\n");
 	readFile(a, &n);
 	printf("Du lieu truoc khi sap xep:\n");
-	printData(a, n);
-	quickSort(a, 0, n-1);
+	printData(a, 0, n);
+	quickSort(a,0,n-1);
 	printf("Du lieu sau khi sap xep:\n");
-	printData(a, n);
+	printData(a, 0, n);
 	return 0;
 }
