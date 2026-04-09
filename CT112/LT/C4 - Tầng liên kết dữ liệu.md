@@ -22,10 +22,10 @@
 
 - Qui định khuôn dạng của khung được sử dụng ở tầng Liên kết dữ liệu
 
-- 3 phương pháp định khung phổ biến:
+- **3 phương pháp định khung phổ biến:**
   - Đếm ký tự (Charater count)
-  - Sử dụng các bytes làm cờ hiệu và các bytes độn (Flag byte with byte stuffing)
-  - Sử dụng cờ bắt đầu và kết thúc khung cùng với các bit độn (Starting and ending flags with bit stuffing)
+  - Sử dụng các **bytes** làm cờ hiệu và các bytes độn (Flag byte with byte stuffing)
+  - Sử dụng **cờ** bắt đầu và kết thúc khung cùng với các **bit độn** (Starting and ending flags with bit stuffing)
 
 ### Phương pháp đếm ký tự (Character Count)
 
@@ -35,11 +35,11 @@ Nếu một khung nào đó bị sai -> không xác định được các khung 
 
 ### Phương pháp sử dụng byte làm cờ và các byte động (Flag byte with byte stuffing)
 
+![Untitled](./.image/c4/3-05.jpg)
+
 (a) Khung được đánh dấu bởi cờ hiệu,
 
 (b) Dữ liệu có chứa cờ hiệu và byte ESC.
-
-![Untitled](./.image/c4/3-05.jpg)
 
 ### Phương pháp sử dụng cờ bắt đầu & kết thúc khung cùng với các bit độn
 
