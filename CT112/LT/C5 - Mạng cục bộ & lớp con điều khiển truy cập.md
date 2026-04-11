@@ -1,10 +1,8 @@
 # Mạng cục bộ & lớp con điều khiển truy cập
 
-Created: January 17, 2026 9:21 PM
-
 # Giới thiệu
 
-Phân loại mạng theo khoảng các địa lý:
+Phân loại mạng theo khoảng cách địa lý:
 
 - Mạng cục bộ - Local Area Network (LAN)
 - Mạng đô thị - Metropolitan Area Network (MAN)
