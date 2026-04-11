@@ -6,7 +6,7 @@ Phân loại mạng theo khoảng cách địa lý:
 
 - Mạng cục bộ - Local Area Network (LAN)
 - Mạng đô thị - Metropolitan Area Network (MAN)
-- Mạng diễn rộng - Wide Area Network (WAN)
+- Mạng diện rộng - Wide Area Network (WAN)
 
 Trong thực tế mạng LAN và WAN thường được cài đặt nhất, đặc biệt là mạng LAN
 
