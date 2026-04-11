@@ -75,7 +75,6 @@ Có 3 loại kênh truyền:
 
 ## Giao thức điều khiển truy cập đường truyền
 
-[Phương pháp chia kênh (Channel Partitioning)](https://www.notion.so/Ph-ng-ph-p-chia-k-nh-Channel-Partitioning-2ebc8424bcc881469b12d9d1ae8898c1?pvs=21)
 ### Phương pháp chia kênh
 
 - Đường truyền sẽ được chia thành nhiều kênh truyền
@@ -94,6 +93,15 @@ Có 3 loại kênh truyền:
 | **Ưu điểm** | **Nhược điểm** |
 |-------------|----------------|
 |- Không có sự đụng độ xảy ra.<br>- Hiệu quả trong hệ thống hội tụ các điều kiện sau:<br> + Có số lượng người dùng nhỏ và ổn định <br> + Người dùng cần giao tiếp nhiều | Lãng phí nếu ít người sử dụng hơn số kênh đã chia.<br> Lãng phí nếu nhiều người dùng không cần giao tiếp nhiều. |
+
+- Lãng phí:
+    - Nếu ít người sử dụng hơn số kênh đã chia.
+    - Lãng phí nếu nhiều người dùng không cần giao tiếp nhiều
+
+  ![Untitled](Untitled.png)
+
+- Người dùng bị từ chối nếu số lượng vượt quá nhiều số kênh đã chia.
+
 
 #### PP chia thời gian (TDMA)
 #### Mạng GSM (mạng 2G): Kết hợp cả 2 FDMA, TDMA
