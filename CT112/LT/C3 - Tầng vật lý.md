@@ -81,9 +81,9 @@ Các vấn đề phải quan tâm:
 ## Số hóa âm thanh và phim ảnh
 
 Dữ liệu âm thanh và phim ảnh thuộc kiểu tuần tự
-B1. **Lấy mẫu**: Với tần số f, ta đo biên độ của tín hiệu -> có được một loạt các số đo.
-B2. **Lượng hóa:** xác định một thang đo với giá trị là lũy thừa của 2 và thực hiện việc lấy tương ứng các số đo vào giá trị thanh đo 
-B3. **Số hóa:** Mỗi một giá trị sau đó được mã hóa thành các giá trị nhị phân và đặt vào trong các tập tin.
+1. **Lấy mẫu**: Với tần số f, ta đo biên độ của tín hiệu -> có được một loạt các số đo.
+2. **Lượng hóa:** xác định một thang đo với giá trị là lũy thừa của 2 và thực hiện việc lấy tương ứng các số đo vào giá trị thanh đo 
+3. **Số hóa:** Mỗi một giá trị sau đó được mã hóa thành các giá trị nhị phân và đặt vào trong các tập tin.
 
 ![Untitled](./.image/c3/Untitled%205.png)
 
