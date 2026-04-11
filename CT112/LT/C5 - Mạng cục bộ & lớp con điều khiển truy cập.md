@@ -22,13 +22,10 @@ _IEEE : Institute of Electrical and Electronics Engineers_
 
 ## Thông số
 
-- Hình trạng (topology)
-- Chỉ ra cách mà các host trong mạng được đấu nối với nhau.
-- Đường truyền chia sẻ (xoắn đôi, đồng trục, cáp quang)
-- Kỹ thuật truy cập đường truyền (Medium Access Control - MAC)
-- Chỉ ra cách thức mà các host trong mạng LAN sử dụng để truy cập và chia sẻ đường truyền mạng.
+- Hình trạng (topology): xác định topology kết nối của các host trong một mạng LAN
+- Đường truyền chung (Shared channel): xác định loại kênh được sử dụng để kết nối các host trong mạng LAN (xoắn đôi, đồng trục, cáp quang)
+- Kỹ thuật truy cập đường truyền (Medium Access Control - MAC): xác định cách thức/phương pháp mà các host sử dụng để chia sẻ một kênh chung trong mạng LAN
 - MAC quản lý việc truy cập đến đường truyền trong LAN và cung cấp cơ sở cho việc định danh các tính chất của mạng LAN theo chuẩn IEEE.
-- Chỉ ra các kiểu kênh truyền được dùng để đấu nối các host trong LAN lại với nhau.
 
 # MAC sublayer
 
