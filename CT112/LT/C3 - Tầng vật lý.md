@@ -187,11 +187,11 @@ $\rightarrow$ Tín hiệu có **độ dài sóng càng lớn** thì khoảng cá
 ## Tín hiệu tuần tự & Tín hiệu số
 
 - Dữ liệu (các bits 0, 1) được truyền từ thiết bị truyền sang thiết bị nhận bằng các **tín hiệu tuần tự** hay **tín hiệu số**
-  - Tín hiệu tuần tự: thường được hiểu là tín hiệu rời rạc theo thời gian, có giá trị thay đổi theo từng bước và phụ thuộc vào trạng thái trước đó
+  - **Tín hiệu tuần tự**: thường được hiểu là tín hiệu rời rạc theo thời gian, có giá trị thay đổi theo từng bước và phụ thuộc vào trạng thái trước đó
 
     ![Tín hiệu tuần tự](./.image/c3/Untitled%2012.png)
 
-  - Tín hiệu số: là tín hiệu chỉ có hai mức giá trị rời rạc (thường là 0 và 1, hoặc mức cao và mức thấp), biểu diễn dữ liệu dưới dạng các bit.
+  - **Tín hiệu số**: là tín hiệu chỉ có hai mức giá trị rời rạc (thường là 0 và 1, hoặc mức cao và mức thấp), biểu diễn dữ liệu dưới dạng các bit.
     ![Tín hiệu số](./.image/c3/Untitled%2013.png)
     
 ## Tín hiệu dạng sóng hình sin
