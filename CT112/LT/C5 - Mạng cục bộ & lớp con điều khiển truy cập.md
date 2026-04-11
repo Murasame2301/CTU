@@ -16,11 +16,9 @@ _IEEE : Institute of Electrical and Electronics Engineers_
 
 ## Đặc tính
 
-Tất cả các host trong mạng LAN cùng chia sẻ đường truyền chung.
-
-Hoạt động dựa trên kiểu quảng bá (Broadcast).
-
-Không yêu cầu phải có hệ thống trung chuyển (routing/switching) trong một LAN đơn.
+- Tất cả các host trong mạng LAN cùng chia sẻ đường truyền chung.
+- Hoạt động dựa trên kiểu quảng bá (Broadcast).
+- Không yêu cầu phải có hệ thống trung chuyển (routing/switching) trong một LAN đơn.
 
 ## Thông số
 
