@@ -76,9 +76,27 @@ Có 3 loại kênh truyền:
 ## Giao thức điều khiển truy cập đường truyền
 
 [Phương pháp chia kênh (Channel Partitioning)](https://www.notion.so/Ph-ng-ph-p-chia-k-nh-Channel-Partitioning-2ebc8424bcc881469b12d9d1ae8898c1?pvs=21)
+### Phương pháp chia kênh
 
-- Phân chia kênh truyền thành nhiều phần nhỏ (time slots, frequency, code)
-- Cấp phát những phần nhỏ này cho các nút sử dụng một cách loại trừ nhau
+- Đường truyền sẽ được chia thành nhiều kênh truyền
+- Mỗi kênh truyền sẽ được cấp phát riêng cho một trạm.
+- Có ba phương pháp chia kênh chính:
+  - Phương pháp chia tần số (FDMA)
+  - Phương pháp chia thời gian (TDMA)
+  - Phương pháp chia mã (CDMA)
+
+#### PP chia tần số (FDMA)
+
+- Phổ của kênh truyền được chia thành nhiều băng tần (frequency bands) khác nhau.
+- Mỗi trạm được gán cho một băng tần cố định.
+- Những trạm nào được cấp băng tần mà không có dữ liệu để truyền thì ở trong trạng thái nhàn rỗi (idle).
+
+| **Ưu điểm** | **Nhược điểm** |
+|-------------|----------------|
+|- Không có sự đụng độ xảy ra.<br>- Hiệu quả trong hệ thống hội tụ các điều kiện sau:<br> + Có số lượng người dùng nhỏ và ổn định <br> + Người dùng cần giao tiếp nhiều | Lãng phí nếu ít người sử dụng hơn số kênh đã chia.<br> Lãng phí nếu nhiều người dùng không cần giao tiếp nhiều. |
+
+#### PP chia thời gian (TDMA)
+#### Mạng GSM (mạng 2G): Kết hợp cả 2 FDMA, TDMA
 
 [Phương pháp truy cập đường truyền ngẫu nhiên (Random Access)](https://www.notion.so/Ph-ng-ph-p-truy-c-p-ng-truy-n-ng-u-nhi-n-Random-Access-2ebc8424bcc8813895b9f85d32f06c96?pvs=21)
 
