@@ -104,7 +104,92 @@ Có 3 loại kênh truyền:
 
 
 #### PP chia thời gian (TDMA)
+
+- Các trạm sẽ xoay vòng (round) để truy cập đường truyền. 
+
+- Qui tắc xoay vòng:
+
+    - Một vòng thời gian sẽ được chia đều thành các khe (slot) thời gian bằng nhau
+    - Mỗi trạm sẽ được cấp một khe thời gian – đủ để nó có thể truyền hết một gói tin.
+    - Một trạm được cấp khe thời gian mà không có dữ liệu truyền thì vẫn chiếm khe thời gian đó, và khoảng thời gian bị chiếm này được gọi là thời gian nhàn rỗi (idle time).
+
+- Có ưu điểm và khuyết điểm giống như FDMA. 
+
+- Nếu người dùng không sử dụng khe thời gian được cấp để truyền dữ liệu thì thời gian sẽ bị lãng phí 
+
+![Untitled](Untitled%201.png)
+
+---
+
+*Trong thực tế 02 phương pháp này được kết với nhau để tăng hiệu quả sử dụng đường truyền và số người sử dụng*
+
+---
+
 #### Mạng GSM (mạng 2G): Kết hợp cả 2 FDMA, TDMA
+
+#### PP phân chia mã (CDMA)
+**PP phân chia mã:**
+- CDMA cho phép mỗi trạm truyền tải trên toàn bộ dải tần số liên tục.
+- Dữ liệu được truyền đồng thời bởi các trạm khác nhau sẽ được tách ra bằng kỹ thuật mã hóa.
+- CDMA chứng minh rằng nhiều tín hiệu truyền đồng thời có thể được kết hợp thành một tín hiệu tuyến tính.
+- CDMA thường được sử dụng trong mạng không dây phát sóng.
+---
+- Thời gian để truyền một bit (còn gọi là thời gian bit) được chia thành m khoảng thời gian ngắn gọi là chips; Thông thường, có 64 hay 128 chips  trên mỗi bit.
+- Tất cả người dùng chia sẻ cùng một dải tần số.
+- Mỗi trạm được gán một mã duy nhất với độ dài m-bit, gọi là chuỗi chip.
+- Chuỗi chip của người dùng sẽ được sử dụng để mã hóa và giải mã dữ liệu của họ được gửi trong một kênh truyền chung đa người dùng.
+
+Ví dụ: Cho dãy chip: (11110011). 
+
+- Để gởi bit 1, người gửi (sender) sẽ gởi đi dãy chip của mình: 11110011
+- Để gởi đi bit 0, người gửi (sender) sẽ gởi đi phần bù của dãy chip của mình: 00001100
+
+Sử dụng ký hiệu lưỡng cực : 
+
+- bit 0 được ký hiệu là -1,
+- bit 1 được ký hiệu là +1.
+
+Tích trong (inner product) của hai mã S và T, ký hiệu là $S\cdot T$, được tính bằng trung bình tổng của tích các bit nội tại tương ứng của hai mã này:
+
+$$
+S \cdot T = \frac{1}{m}\sum_{i=1}^{m}S_iT_i
+$$
+
+Ví dụ: 
+
+$$
+\begin{align*}
+S &= +1+1+1-1-1+1+1-1\\
+T &= +1+1+1+1-1-1+1-1\\
+S\cdot T &= \frac{+1+1+1+(-1)+1+(-1)+1+1}{8} = \frac{1}{2}
+\end{align*}
+$$
+
+Hai mã S và T có cùng chiều dài m bits được gọi là trực giao khi: $S\cdot T = 0$.
+
+Nếu các người dùng trong hệ thống có các mã trực giao với nhau thì họ có thể cùng tồn tại và truyền dữ liệu một cách đồng thời với khả năng bị giao thoa dữ liệu là ít nhất 
+
+**Mã hóa và giải mã tín hiệu:**
+
+Gọi $D_i$  là bit dữ liệu mà người dùng i muốn mã hóa để truyền trên mạng.
+
+$C_i$  là chuỗi chip (mã số) của người dùng i 
+
+Tín hiệu được mã của người dùng i:
+
+$Z_i  = D_i \times C_i$
+
+Tín hiệu tổng hợp được gởi trên đường truyền: 
+
+$Z = \displaystyle \sum_{i=1}^{n}Z_i$
+
+n là tổng số người dùng gởi tín hiệu lên đường truyền tại cùng thời điểm
+
+Giải mã
+
+- Dữ liệu mà người dùng i lấy về từ tín hiệu tổng hợp chung:
+- Nếu $D_i$ > “ngưỡng”, coi nó là 1, ngược lại coi nó là -1
+
 
 [Phương pháp truy cập đường truyền ngẫu nhiên (Random Access)](https://www.notion.so/Ph-ng-ph-p-truy-c-p-ng-truy-n-ng-u-nhi-n-Random-Access-2ebc8424bcc8813895b9f85d32f06c96?pvs=21)
 
