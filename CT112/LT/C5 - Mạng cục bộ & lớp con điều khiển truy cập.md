@@ -22,19 +22,13 @@ _IEEE : Institute of Electrical and Electronics Engineers_
 
 ## Thông số
 
-Hình trạng (topology)
-
-Chỉ ra cách mà các host trong mạng được đấu nối với nhau.
-
-Đường truyền chia sẻ (xoắn đôi, đồng trục, cáp quang)
-
-Kỹ thuật truy cập đường truyền (Medium Access Control - MAC)
-
-Chỉ ra cách thức mà các host trong mạng LAN sử dụng để truy cập và chia sẻ đường truyền mạng.
-
-MAC quản lý việc truy cập đến đường truyền trong LAN và cung cấp cơ sở cho việc định danh các tính chất của mạng LAN theo chuẩn IEEE.
-
-Chỉ ra các kiểu kênh truyền được dùng để đấu nối các host trong LAN lại với nhau.
+- Hình trạng (topology)
+- Chỉ ra cách mà các host trong mạng được đấu nối với nhau.
+- Đường truyền chia sẻ (xoắn đôi, đồng trục, cáp quang)
+- Kỹ thuật truy cập đường truyền (Medium Access Control - MAC)
+- Chỉ ra cách thức mà các host trong mạng LAN sử dụng để truy cập và chia sẻ đường truyền mạng.
+- MAC quản lý việc truy cập đến đường truyền trong LAN và cung cấp cơ sở cho việc định danh các tính chất của mạng LAN theo chuẩn IEEE.
+- Chỉ ra các kiểu kênh truyền được dùng để đấu nối các host trong LAN lại với nhau.
 
 # MAC sublayer
 
@@ -63,27 +57,20 @@ Có 3 loại kênh truyền:
 
 ### Logical Link Control Layer
 
-Giao tiếp với tầng mạng
-
-Điều khiển lỗi và điều khiển luồng
-
-Dựa trên giao thức HDLC
-
-Cung cấp 03 loại dịch vụ:
-
-- Unacknowledged connectionless service (dịch vụ không kết nối không báo nhận)
-- Connection mode service - acknowledged connection-oriented service (dịch vụ kết nối - dịch vụ định hướng kết nối có báo nhận)
-- Acknowledged connectionless service (dịch vụ không kết nối có báo nhận)
+- Giao tiếp với tầng mạng
+- Điều khiển lỗi và điều khiển luồng
+- Dựa trên giao thức HDLC
+- Cung cấp 03 loại dịch vụ:
+	- Unacknowledged connectionless service (dịch vụ không kết nối không báo nhận)
+	- Connection mode service - acknowledged connection-oriented service (dịch vụ kết nối - dịch vụ định hướng kết nối có báo nhận)
+	- Acknowledged connectionless service (dịch vụ không kết nối có báo nhận)
 
 ### Medium Access Control Layer
 
-Tập hợp dữ liệu thành khung cùng với trường địa chỉ nhận/gởi, chuỗi kiểm tra khung
-
-Phân tách dữ liệu khung nhận được với trường địa chỉ và thực hiện kiểm tra lỗi
-
-Điều khiển việc truy cập đường truyền: Một điều không có trong tầng liên kết dữ liệu truyền thống
-
-Cùng một tầng LLC có thể có nhiều tùy chọn cho tầng MAC
+- Tập hợp dữ liệu thành khung cùng với trường địa chỉ nhận/gởi, chuỗi kiểm tra khung
+- Phân tách dữ liệu khung nhận được với trường địa chỉ và thực hiện kiểm tra lỗi
+- Điều khiển việc truy cập đường truyền: Một điều không có trong tầng liên kết dữ liệu truyền thống
+- Cùng một tầng LLC có thể có nhiều tùy chọn cho tầng MAC
 
 ## Các giao thức mạng LAN trong ngữ cảnh chung
 
@@ -111,14 +98,11 @@ Cùng một tầng LLC có thể có nhiều tùy chọn cho tầng MAC
 
 ![Untitled](./.image/c5/Untitled%202.png)
 
-MAC quản lý việc truy cập đường truyền
-
-LLC đảm bảo tính độc lập của việc quản lý các liên kết dữ liệu với đường truyền vật lý & phương pháp truy cập đường truyền.
-
-IEEE (Institute of Electrical and Electronic Engineers)
-
-- Tổ chức đi tiên phong trong lĩnh vực chuẩn hóa mạng cục bộ
-- Dự án IEEE 802 định nghĩa các chuẩn thuộc họ IEEE 802.x
+- MAC quản lý việc truy cập đường truyền
+- LLC đảm bảo tính độc lập của việc quản lý các liên kết dữ liệu với đường truyền vật lý & phương pháp truy cập đường truyền.
+- IEEE (Institute of Electrical and Electronic Engineers)
+	- Tổ chức đi tiên phong trong lĩnh vực chuẩn hóa mạng cục bộ
+	- Dự án IEEE 802 định nghĩa các chuẩn thuộc họ IEEE 802.x
 
 ![Untitled](./.image/c5/Untitled%203.png)
 
@@ -128,7 +112,7 @@ IEEE (Institute of Electrical and Electronic Engineers)
 
 ![Untitled](./.image/c5/Untitled%204.png)
 
-Bức phác họa Ethernet của Bob Metcalfe, người sáng lập ra Ethernet
+- Bức phác họa Ethernet của Bob Metcalfe, người sáng lập ra Ethernet
 
 (Xerox PARC - 1972)
 
