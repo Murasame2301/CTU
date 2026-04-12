@@ -195,8 +195,17 @@ Trong đó n là tổng số người dùng gởi tín hiệu lên đường tru
 
 ### Phương pháp truy cập đường truyền ngẫu nhiên (Random Access)
 
-- Mỗi trạm tự quyết định thời điểm truyền trên kênh dùng chung.
-- Khi xảy ra đụng độ, các trạm sẽ phát hiện hoặc ước lượng va chạm rồi thực hiện truyền lại theo một chiến lược phù hợp.
+- Nếu một trạm cần gởi một khung:
+	- Nó sẽ gởi khung đó trên toàn bộ dải thông của kênh truyền.
+	- Không có sự phối hợp trình tự giữa các trạm.
+- Nếu có hơn 2 trạm phát cùng một lúc, “đụng độ” (collision) sẽ xảy ra, các khung bị đụng độ sẽ bị hư hại. 
+- Giao thức truy cập đường truyền ngẫu nhiên xác định:
+	- Cách để phát hiện đụng độ.
+	- Cách để phục hồi sau đụng độ.
+- Các giao thức truy cập ngẫu nhiên: 
+	- Slotted ALOHA;
+	- Pure ALOHA;
+	- CSMA và CSMA/CD
 
 #### Slotted ALOHA
 
