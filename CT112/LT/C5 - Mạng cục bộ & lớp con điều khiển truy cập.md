@@ -52,7 +52,7 @@ Có 3 loại kênh truyền:
   - Tầng điều khiển kênh truyền luận lý (Logical Link Control Layer - LLC)
   - Tầng điều khiển truy cập đường truyền (Medium Access Control Layer - MAC)
 
-### Logical Link Control Layer
+### Logical Link Control Layer - LLC layer
 
 - Giao tiếp với tầng mạng
 - Điều khiển lỗi và điều khiển luồng
