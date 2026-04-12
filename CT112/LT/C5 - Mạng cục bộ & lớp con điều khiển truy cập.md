@@ -129,22 +129,22 @@ _Trong thực tế 02 phương pháp này được kết với nhau để tăng 
 
 **PP phân chia mã:**
 
-- CDMA cho phép mỗi trạm truyền tải trên toàn bộ dải tần số liên tục.
+- CDMA cho phép mỗi trạm truyền có quyền phát dữ liệu lên toàn bộ phổ tần của đường truyền lớn tại mọi thời điểm.
 - Dữ liệu được truyền đồng thời bởi các trạm khác nhau sẽ được tách ra bằng kỹ thuật mã hóa.
-- CDMA chứng minh rằng nhiều tín hiệu truyền đồng thời có thể được kết hợp thành một tín hiệu tuyến tính.
-- CDMA thường được sử dụng trong mạng không dây phát sóng.
+- CDMA chỉ ra rằng nhiều tín hiệu truyền đồng thời có thể được kết hợp thành một tín hiệu tuyến tính.
+- Kỹ thuật CDMA thường được sử dụng trong các kênh truyền broadcast (mạng điện thoại di động, vệ tinh...).
 
 <br>
 
-- Thời gian để truyền một bit (còn gọi là thời gian bit) được chia thành m khoảng thời gian ngắn gọi là chips; Thông thường, có 64 hay 128 chips trên mỗi bit.
+- Thời gian để truyền một bit (còn gọi là thời gian bit) được chia thành _m_ khoảng thời gian ngắn gọi là chips; Thông thường, có 64 hay 128 chips trên mỗi bit.
 - Tất cả người dùng chia sẻ cùng một dải tần số.
 - Mỗi trạm được gán một mã duy nhất với độ dài m-bit, gọi là chuỗi chip.
 - Chuỗi chip của người dùng sẽ được sử dụng để mã hóa và giải mã dữ liệu của họ được gửi trong một kênh truyền chung đa người dùng.
 
 Ví dụ: Cho dãy chip: (11110011).
 
-- Để gởi bit 1, người gửi (sender) sẽ gởi đi dãy chip của mình: 11110011
-- Để gởi đi bit 0, người gửi (sender) sẽ gởi đi phần bù của dãy chip của mình: 00001100
+- Để gởi bit **1**, người gửi (sender) sẽ gởi đi dãy chip của mình: 11110011
+- Để gởi đi bit **0**, người gửi (sender) sẽ gởi đi **phần bù** của dãy chip của mình: 00001100
 
 - Sử dụng ký hiệu lưỡng cực :
   - bit 0 được ký hiệu là -1,
