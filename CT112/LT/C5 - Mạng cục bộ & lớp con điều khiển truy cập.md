@@ -501,3 +501,5 @@ If (có đụng độ){
 | 10GBase-SR | multimode         | full duplex   | 10Gbps        |          | 300m             | 65B/66B | 10Gigabit Ethernet |
 | 10GBase-LR | singlemode        | full duplex   | 10Gbps        |          | 10km             | 65B/66B | 10Gigabit Ethernet |
 | 10GBase-T  | UTP Cat 6 trở lên |               | 10Gbps        |          | 55m / 100m       | LDPC    | 10Gigabit Ethernet |
+
+#

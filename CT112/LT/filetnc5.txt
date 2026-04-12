@@ -1,0 +1,215 @@
+SẮP XẾP CÂU HỎI THEO THỨ TỰ KIẾN THỨC - CHƯƠNG 5
+
+I. TỔNG QUAN LAN, IEEE 802, LLC/MAC
+
+Câu 1. Ethernet được IEEE định nghĩa trong dự án 802?
+a. 802.2
+b. 802.4
+c. 802.5
+d. 802.3
+
+Câu 2. Tầng nào trong mô hình OSI được IEEE chia thành hai tầng con?
+a. Vận chuyển
+b. Mạng
+c. Vật lý
+d. Liên kết dữ liệu
+
+Câu 3. Trong mô hình IEEE 802, tầng liên kết dữ liệu được chia thành mấy tầng con?
+a. 5
+b. 3
+c. 2
+d. 4
+
+Câu 4. Logical Link Control (LLC) được IEEE định nghĩa trong dự án 802 là?
+a. 802.4
+b. 802.3
+c. 802.2
+d. 802.5
+
+Câu 5. Chức năng nào sau đây không thuộc tầng MAC (Medium Access Control)?
+A. Điều khiển truy cập đường truyền
+B. Kiểm tra lỗi
+C. Định khung
+D. Điều khiển luồng
+(Giải thích: Điều khiển luồng thường là chức năng của tầng LLC hoặc tầng Vận chuyển. MAC chịu trách nhiệm truy cập đường truyền và kiểm tra lỗi qua FCS)
+
+Câu 6. Cùng một giao thức LLC có thể có nhiều tùy chọn cho giao thức MAC khác nhau, đúng hay sai?
+A. Đúng
+B. Sai
+
+II. GIAO THỨC ĐIỀU KHIỂN TRUY CẬP ĐƯỜNG TRUYỀN
+
+Câu 7. Có bao nhiêu phương pháp chia sẻ đường truyền chung giữa các máy tính trên mạng?
+a. 1
+b. 3
+c. 2
+d. 4
+
+III. PHƯƠNG PHÁP CHIA KÊNH
+
+Câu 8. TDMA thuộc loại giao thức điều khiển truy cập đường truyền nào?
+a. Phương pháp truy cập ngẫu nhiên
+b. Phương pháp chia kênh
+c. Phương pháp truy cập phân lượt
+d. Phương pháp truy cập trực tiếp
+
+Câu 9. Phương pháp chia sẻ đường truyền nào dưới đây không phải là phương pháp chia kênh?
+a. FDMA (Frequency Division Multiple Access)
+b. TDMA (Time Division Multiple Access)
+c. CSMA (Carrier Sense Multiple Access)
+d. CDMA (Code Division Multiple Access)
+
+Câu 10. Phương pháp chia kênh nào dưới đây không dựa trên tần số và thời gian sử dụng của kênh truyền?
+a. CDMA
+b. TDMA (phân chia theo thời gian)
+c. GSM
+d. FDMA (phân chia theo tần số)
+
+Câu 11. Hai mã S và T có cùng chiều dài m bits được gọi là trực giao khi?
+a. Tích trong của chúng bằng -1
+b. Tích trong của chúng bằng m
+c. Tích trong của chúng bằng 0
+d. Tích trong của chúng bằng +1
+
+Câu 12. Trong phương pháp CDMA, hai người dùng A và B có mã tương ứng là 11101000 và 101110111, hai người dùng có mã trực giao hay không?
+a. Không
+b. Có
+
+Câu 13. Trong phương pháp CDMA, hai người dùng A và B có mã tương ứng là 11101000 và 101110111, nếu người dùng A gởi đi bit 0 và người dùng B gởi đi bit 1, thì tín hiệu tổng trên kênh truyền sẽ là?
+Ghi chú: đề gốc có ghi "đề sai á".
+a. 2 0 2 0 2 -2 0 2
+b. 0 -2 0 2 0 0 2 2
+c. 0 2 0 -2 0 0 2 2
+d. 2 0 2 0 2 -2 0 0
+
+IV. PHƯƠNG PHÁP TRUY CẬP NGẪU NHIÊN
+
+Câu 14. Pure ALOHA thuộc loại giao thức điều khiển truy cập đường truyền nào?
+a. Phương pháp chia kênh
+b. Phương pháp truy cập ngẫu nhiên
+c. Phương pháp truy cập trực tiếp
+d. Phương pháp phân lượt truy cập
+
+Câu 15. Phương pháp chia sẻ đường truyền nào dưới đây không phải là phương pháp truy cập đường truyền ngẫu nhiên?
+a. Pure ALOHA
+b. CDMA (Code Division Multiple Access)
+c. CSMA/CD (Carrier Sense Multiple Access/Collision Detection)
+d. Slotted ALOHA
+
+Câu 16. "Nếu đường truyền bận, đợi trong một khoảng thời gian ngẫu nhiên rồi tiếp tục nghe lại đường truyền", mệnh đề này đề cập tới phương pháp trì hoãn gởi khung nào khi đường truyền bận?
+a. Persistent CSMA
+b. Non-persistent CSMA
+c. No-persistent CSMA
+d. P-persistent CSMA
+
+Câu 17. Giao thức CSMA/CD được sử dụng trong chuẩn mạng nào?
+a. HDLC
+b. Token Ring
+c. FDDI
+d. Ethernet
+
+Câu 18. Phương pháp truy cập đường truyền CSMA/CD được sử dụng trong chuẩn mạng nào?
+A. FDDI
+B. HDLC
+C. Ethernet
+D. Token Ring
+
+V. PHƯƠNG PHÁP PHÂN LƯỢT
+
+Câu 19. Phương pháp chia sẻ đường truyền nào dưới đây là phương pháp phân lượt truy cập?
+a. Ring
+b. Polling
+c. Pure ALOHA
+d. Slotted ALOHA
+
+Câu 20. Phương pháp chia sẻ đường truyền nào dưới đây là phương pháp phân lượt truy cập?
+A. Ring
+B. Pure ALOHA
+C. Polling
+D. Slotted ALOHA
+
+Câu 21. Mệnh đề nào sau đây không đề cập tới phương pháp phân lượt truy cập "Thăm dò phân tán"?
+a. Tới khe đặt chỗ thứ i, trạm thứ i nếu muốn truyền dữ liệu sẽ phát tín hiệu đặt chỗ của mình lên kênh truyền
+b. Thời gian được chia thành những "khe" (slot). Một chu kỳ hoạt động của hệ thống bắt đầu bằng N (N = số trạm) khe thời gian ngắn dùng để đặt chỗ
+c. Sau thời gian đặt chỗ, các trạm không đặt chỗ muốn truyền dữ liệu thì có thể truyền dữ liệu vào khe thời gian sau khe thời gian sau cùng
+d. Sau thời gian đặt chỗ, các trạm không đặt chỗ thì không được phép truyền dữ liệu dù đang có dữ liệu muốn truyền
+
+Câu 22. Giao thức nào có thể tính được thời gian tối đa mà một máy trạm phải chờ để đến lượt mình sử dụng đường truyền?
+A. CSMA
+B. CSMA/CD
+C. Token ring
+D. Aloha
+
+VI. ETHERNET VÀ CHUẨN MẠNG CỤC BỘ
+
+Câu 23. Các dạng truyền tải (traffic) trên mạng gồm?
+a. Unicast traffic, Multicast traffic, Broadcast traffic
+b. Normal traffic, Broadcast traffic, Unicast traffic
+c. Unicast traffic, Multicast traffic, Normal traffic
+d. Multicast traffic, Normal traffic, Broadcast traffic
+
+Câu 24. Địa chỉ vật lý của thiết bị kết nối mạng (địa chỉ MAC) được mô tả bằng bao nhiêu bit?
+A. 64 bit
+B. 128 bit
+C. 48 bit
+D. 32 bit
+
+Câu 25. Địa chỉ nguồn và đích của gói tin trong mạng Ethernet dài bao nhiêu byte?
+a. 10
+b. 6
+c. 4
+d. 8
+
+Câu 26. Byte Start of Frame (SOF) của chuẩn mạng Ethernet là?
+a. 10101010
+b. 10101011
+c. 01010101
+d. 01111110
+
+Câu 27. Chuẩn mạng Ethernet 1000-Base-X, sử dụng phương pháp mã hóa đường truyền?
+a. 8B/10B
+b. 5B/6B
+c. 4B/5B
+d. 3B/4B
+
+Câu 28. Chuẩn mạng Ethernet 1000Base-LX, cho phép kết nối hai máy tính có khoảng cách xa nhất là?
+a. 5000m
+b. 550m
+c. 1000m
+d. 10000m
+
+Câu 29. Chuẩn mạng Ethernet 10GBASE-LR, cho phép kết nối hai máy tính có khoảng cách xa nhất là?
+a. 2000m
+b. 10000m
+c. 500m
+d. 5000m
+Ghi chú: 10GBASE-SR thì chọn 300m.
+
+Câu 30. Với chuẩn mạng Ethernet 10GBASE-T sử dụng cáp UTP Cat 6, cho phép kết nối trực tiếp 02 nút mạng có khoảng cách xa nhất là?
+a. 60m
+b. 55m
+c. 50m
+d. 100m
+
+Câu 31. Với chuẩn mạng Ethernet 10GBASE-T sử dụng cáp UTP Cat 6A, cho phép kết nối trực tiếp 02 nút mạng có khoảng cách xa nhất là?
+a. 50m
+b. 100m
+c. 60m
+d. 55m
+
+VII. BÀI TẬP TỔNG HỢP MẠNG LAN
+
+Câu 32. Cho sơ đồ mạng như hình, bạn hãy cho biết có bao nhiêu miền đụng độ (Collision Domain)?
+-> 6
+
+Câu 33. Cho sơ đồ mạng như hình, bạn hãy cho biết có bao nhiêu miền đụng độ (Collision Domain) và bao nhiêu miền quảng bá (Broadcast)?
+Lưu ý:
+- R1, R2: là các router
+- S1, S2: là các switch
+- B1: là bridge
+- H1: là hub
+a. 10 và 4
+b. 10 và 5
+c. 11 và 5
+d. 11 và 4
+-> 10 và 5
