@@ -98,11 +98,7 @@ Có 3 PP:
 
 | **Ưu điểm**                                                                                                                                                            | **Nhược điểm**                                                                                                  |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| - Không có sự đụng độ xảy ra.<br>- Hiệu quả trong hệ thống hội tụ các điều kiện sau:<br> + Có số lượng người dùng nhỏ và ổn định <br> + Người dùng cần giao tiếp nhiều | Lãng phí nếu ít người sử dụng hơn số kênh đã chia.<br> Lãng phí nếu nhiều người dùng không cần giao tiếp nhiều. |
-
-- Lãng phí:
-  - Nếu ít người sử dụng hơn số kênh đã chia.
-  - Lãng phí nếu nhiều người dùng không cần giao tiếp nhiều
+| - Không có sự đụng độ xảy ra.<br>- Hiệu quả trong hệ thống hội tụ các điều kiện sau:<br> + Có số lượng người dùng nhỏ và ổn định <br> + Người dùng cần giao tiếp nhiều | - Lãng phí:<br>+ Nếu ít người sử dụng hơn số kênh đã chia.<br> + Nếu nhiều người dùng không cần giao tiếp nhiều. |
 
   ![FDMA](./.image/c5/channel-access-fdma.png)
 
