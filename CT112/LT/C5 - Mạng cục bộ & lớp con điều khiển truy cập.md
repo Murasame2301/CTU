@@ -193,6 +193,8 @@ Trong đó n là tổng số người dùng gởi tín hiệu lên đường tru
 - Dữ liệu mà người dùng i lấy về từ tín hiệu tổng hợp chung:
 - Nếu $D_i$ > “ngưỡng”, coi nó là 1, ngược lại coi nó là -1
 
+$$D_i = Z \cdot C_i$$
+
 ### Phương pháp truy cập đường truyền ngẫu nhiên (Random Access)
 
 - Nếu một trạm cần gởi một khung:
