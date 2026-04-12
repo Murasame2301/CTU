@@ -52,7 +52,7 @@ Có 3 loại kênh truyền:
   - Tầng điều khiển kênh truyền luận lý (Logical Link Control Layer - LLC)
   - Tầng điều khiển truy cập đường truyền (Medium Access Control Layer - MAC)
 
-### Logical Link Control Layer
+### Logical Link Control Layer - LLC layer
 
 - Giao tiếp với tầng mạng
 - Điều khiển lỗi và điều khiển luồng
@@ -98,11 +98,7 @@ Có 3 PP:
 
 | **Ưu điểm**                                                                                                                                                            | **Nhược điểm**                                                                                                  |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| - Không có sự đụng độ xảy ra.<br>- Hiệu quả trong hệ thống hội tụ các điều kiện sau:<br> + Có số lượng người dùng nhỏ và ổn định <br> + Người dùng cần giao tiếp nhiều | Lãng phí nếu ít người sử dụng hơn số kênh đã chia.<br> Lãng phí nếu nhiều người dùng không cần giao tiếp nhiều. |
-
-- Lãng phí:
-  - Nếu ít người sử dụng hơn số kênh đã chia.
-  - Lãng phí nếu nhiều người dùng không cần giao tiếp nhiều
+| - Không có sự đụng độ xảy ra.<br>- Hiệu quả trong hệ thống hội tụ các điều kiện sau:<br> + Có số lượng người dùng nhỏ và ổn định <br> + Người dùng cần giao tiếp nhiều | - Lãng phí:<br>+ Nếu ít người sử dụng hơn số kênh đã chia.<br> + Nếu nhiều người dùng không cần giao tiếp nhiều. |
 
   ![FDMA](./.image/c5/channel-access-fdma.png)
 
@@ -123,34 +119,32 @@ Có 3 PP:
 
 ![TDMA](./.image/c5/channel-access-tdma.png)
 
----
-
+#### Mạng GSM: Kết hợp cả 2 FDMA, TDMA
 _Trong thực tế 02 phương pháp này được kết với nhau để tăng hiệu quả sử dụng đường truyền và số người sử dụng_
 
----
+- Mạng GSM ngoài đời thực còn được gọi là mạng điện thoại 2G. Tuy nhiên đến 2025, mạng 2G đã bị cắt sóng hoàn toàn tại VN.
 
-#### Mạng GSM (mạng 2G): Kết hợp cả 2 FDMA, TDMA
 
 #### PP phân chia mã (CDMA)
 
 **PP phân chia mã:**
 
-- CDMA cho phép mỗi trạm truyền tải trên toàn bộ dải tần số liên tục.
+- CDMA cho phép mỗi trạm truyền có quyền phát dữ liệu lên toàn bộ phổ tần của đường truyền lớn tại mọi thời điểm.
 - Dữ liệu được truyền đồng thời bởi các trạm khác nhau sẽ được tách ra bằng kỹ thuật mã hóa.
-- CDMA chứng minh rằng nhiều tín hiệu truyền đồng thời có thể được kết hợp thành một tín hiệu tuyến tính.
-- CDMA thường được sử dụng trong mạng không dây phát sóng.
+- CDMA chỉ ra rằng nhiều tín hiệu truyền đồng thời có thể được kết hợp thành một tín hiệu tuyến tính.
+- Kỹ thuật CDMA thường được sử dụng trong các kênh truyền broadcast (mạng điện thoại di động, vệ tinh...).
 
 <br>
 
-- Thời gian để truyền một bit (còn gọi là thời gian bit) được chia thành m khoảng thời gian ngắn gọi là chips; Thông thường, có 64 hay 128 chips trên mỗi bit.
+- Thời gian để truyền một bit (còn gọi là thời gian bit) được chia thành _m_ khoảng thời gian ngắn gọi là chips; Thông thường, có 64 hay 128 chips trên mỗi bit.
 - Tất cả người dùng chia sẻ cùng một dải tần số.
 - Mỗi trạm được gán một mã duy nhất với độ dài m-bit, gọi là chuỗi chip.
 - Chuỗi chip của người dùng sẽ được sử dụng để mã hóa và giải mã dữ liệu của họ được gửi trong một kênh truyền chung đa người dùng.
 
 Ví dụ: Cho dãy chip: (11110011).
 
-- Để gởi bit 1, người gửi (sender) sẽ gởi đi dãy chip của mình: 11110011
-- Để gởi đi bit 0, người gửi (sender) sẽ gởi đi phần bù của dãy chip của mình: 00001100
+- Để gởi bit **1**, người dùng sẽ gởi đi dãy chip của mình: 11110011
+- Để gởi đi bit **0**, người dùng sẽ gởi đi **phần bù** của dãy chip của mình: 00001100
 
 - Sử dụng ký hiệu lưỡng cực :
   - bit 0 được ký hiệu là -1,
@@ -174,15 +168,15 @@ $$
 
 - Hai mã S và T có cùng chiều dài m bits được gọi là **trực giao** khi: $S\cdot T = 0$.
 
-Nếu các người dùng trong hệ thống có các mã trực giao với nhau thì họ có thể cùng tồn tại và truyền dữ liệu một cách đồng thời với khả năng bị giao thoa dữ liệu là ít nhất
+- Nếu các người dùng trong hệ thống có các mã trực giao với nhau ($S\cdot T = 0$) $\rightarrow$ họ có thể cùng tồn tại và truyền dữ liệu một cách đồng thời với khả năng bị giao thoa dữ liệu là ít nhất
 
 **Mã hóa và giải mã tín hiệu:**
 
 **\*Mã hóa:**
 
-- Gọi $D_i$ là bit dữ liệu mà người dùng i muốn mã hóa để truyền trên mạng.
-
-- $C_i$ là chuỗi chip (mã số) của người dùng i
+- Gọi
+	- $D_i$ là bit dữ liệu mà người dùng i muốn mã hóa để truyền trên mạng.
+	- $C_i$ là chuỗi chip (mã số) của người dùng i
 
 - Tín hiệu được mã của người dùng i:
 
@@ -199,10 +193,21 @@ Trong đó n là tổng số người dùng gởi tín hiệu lên đường tru
 - Dữ liệu mà người dùng i lấy về từ tín hiệu tổng hợp chung:
 - Nếu $D_i$ > “ngưỡng”, coi nó là 1, ngược lại coi nó là -1
 
+$$D_i = Z \cdot C_i$$
+
 ### Phương pháp truy cập đường truyền ngẫu nhiên (Random Access)
 
-- Mỗi trạm tự quyết định thời điểm truyền trên kênh dùng chung.
-- Khi xảy ra đụng độ, các trạm sẽ phát hiện hoặc ước lượng va chạm rồi thực hiện truyền lại theo một chiến lược phù hợp.
+- Nếu một trạm cần gởi một khung:
+	- Nó sẽ gởi khung đó trên toàn bộ dải thông của kênh truyền.
+	- Không có sự phối hợp trình tự giữa các trạm.
+- Nếu có hơn 2 trạm phát cùng một lúc, “đụng độ” (collision) sẽ xảy ra, các khung bị đụng độ sẽ bị hư hại. 
+- Giao thức truy cập đường truyền ngẫu nhiên xác định:
+	- Cách để phát hiện đụng độ.
+	- Cách để phục hồi sau đụng độ.
+- Các giao thức truy cập ngẫu nhiên: 
+	- Slotted ALOHA;
+	- Pure ALOHA;
+	- CSMA và CSMA/CD
 
 #### Slotted ALOHA
 
@@ -314,24 +319,18 @@ $$
 
 ##### LÀM LẠI SAU KHI ĐỤNG ĐỘ
 
-Sau khi bị đụng độ, trạm sẽ thực hiện thuật toán back-off:
+- Sau khi bị đụng độ, trạm sẽ thực hiện thuật toán back-off:
+	- Tính lại lượng thời gian phải chờ trước khi gửi lại khung.
+	- Khoảng thời gian này phải được chọn ngẫu nhiên để các trạm không tiếp tục đụng độ khi cùng quay lại truyền.
+- Thuật toán back-off hoạt động như sau:
 
-- Tính lại lượng thời gian phải chờ trước khi gửi lại khung.
-- Khoảng thời gian này phải được chọn ngẫu nhiên để các trạm không tiếp tục đụng độ khi cùng quay lại truyền.
-
-Thuật toán back-off hoạt động như sau:
-
-- Rút ngẫu nhiên một số nguyên $M$ thỏa $0 \leq M \leq 2^k - 1$, với $k = \min(n, 10)$.
-  - `n` là tổng số lần đụng độ mà trạm đã gặp.
-- Kỳ hạn trạm phải chờ trước khi thử lại là:
-
-$$
-M \times T_w
-$$
+	- Rút ngẫu nhiên một số nguyên $M$ thỏa $0 \leq M \leq 2^k - 1$, với $k = \min(n, 10)$.
+	  - `n` là tổng số lần đụng độ mà trạm đã gặp.
+	- Kỳ hạn trạm phải chờ trước khi thử lại là: $M \times T_w$
 
 _Khi `n` đạt đến giá trị `16` thì hủy bỏ việc truyền khung._
 
-### Phương pháp phân lượt (Taking turns)
+### Phương pháp phân lượt truy cập đường truyền (Taking turns)
 
 - Phương pháp phân lượt tận dụng ưu điểm của phương pháp chia kênh và truy cập ngẫu nhiên.
 - Ý tưởng chính là hạn chế đụng độ bằng cách cho các trạm truy cập đường truyền một cách tuần tự.
@@ -340,7 +339,7 @@ _Khi `n` đạt đến giá trị `16` thì hủy bỏ việc truyền khung._
 
 - `Thăm dò (polling)`:
   - Trạm chủ (`master`) sẽ mời các trạm tớ (`slave`) truyền khi đến lượt.
-  - Chi phí cần quan tâm là chi phí thăm dò, độ trễ do phải chờ đến lượt truyền và rủi ro khi trạm chủ gặp sự cố.
+  - Vấn đề cần quan tâm là chi phí thăm dò, độ trễ do phải chờ đến lượt truyền và rủi ro khi trạm chủ gặp sự cố.
 - `Chuyền thẻ bài (token passing)`:
   - Thẻ bài điều khiển được chuyển lần lượt từ trạm này sang trạm khác.
   - Trạm đang giữ thẻ bài sẽ có quyền truyền; truyền xong phải chuyển thẻ cho trạm kế tiếp.
@@ -357,7 +356,7 @@ _Khi `n` đạt đến giá trị `16` thì hủy bỏ việc truyền khung._
 
 #### Chuyền thẻ bài (Token Ring)
 
-- Trong mạng chỉ tồn tại một thẻ bài duy nhất, là một dãy bit điều khiển.
+- **Trong mạng chỉ tồn tại một thẻ bài duy nhất, là một dãy bit điều khiển.**
 - Thẻ bài sẽ chạy vòng quanh vòng mạng.
 - Mỗi nút nhận thẻ bài rồi lại chuyển tiếp thẻ bài này đi.
 - Khi một trạm cần truyền và đúng lúc thấy thẻ bài tới, nó sẽ lấy thẻ bài ra khỏi vòng và truyền khung dữ liệu của mình.
@@ -365,11 +364,11 @@ _Khi `n` đạt đến giá trị `16` thì hủy bỏ việc truyền khung._
 
 ![Chuyền thẻ bài](./image/c5/taking-turns-token-ring.png)
 
-- Card mạng gồm một bộ nhận, một bộ phát và một bộ đệm dùng để chứa dữ liệu.
+- Card mạng gồm một bộ **nhận**, một bộ **phát** và một bộ đệm dùng để chứa dữ liệu.
 - Khi không có trạm nào trong vòng cần truyền dữ liệu, thẻ bài sẽ tiếp tục lưu chuyển quanh vòng.
 - Nếu một trạm cần truyền và đang giữ thẻ bài, nó có quyền truyền một hoặc nhiều khung dữ liệu tùy theo quy định của hệ thống.
-- Khung thông tin chạy qua mỗi trạm trong vòng; mỗi trạm sẽ nhìn vào địa chỉ đích trong khung để xác định xem nó có phải đích đến hay không.
-- Nếu đúng là đích, trạm sẽ chép nội dung khung vào bộ đệm của nó nhưng không xóa khung ra khỏi vòng.
+- Khung thông tin chạy qua mỗi trạm trong vòng; _mỗi trạm sẽ nhìn vào địa chỉ đích_ trong khung để xác định xem nó có phải đích đến hay không.
+- **Nếu đúng là đích**, trạm sẽ chép nội dung khung vào bộ đệm của nó nhưng không xóa khung ra khỏi vòng.
 
 ##### Thời gian giữ thẻ bài
 
