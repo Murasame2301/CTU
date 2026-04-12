@@ -104,7 +104,7 @@ Có 3 PP:
   - Nếu ít người sử dụng hơn số kênh đã chia.
   - Lãng phí nếu nhiều người dùng không cần giao tiếp nhiều
 
-  ![Untitled](Untitled.png)
+  ![FDMA](./.image/c5/channel-access-fdma.png)
 
 - Người dùng bị từ chối nếu số lượng vượt quá nhiều số kênh đã chia.
 
@@ -121,7 +121,7 @@ Có 3 PP:
 
 - Nếu người dùng không sử dụng khe thời gian được cấp để truyền dữ liệu thì thời gian sẽ bị lãng phí
 
-![Untitled](Untitled%201.png)
+![TDMA](./.image/c5/channel-access-tdma.png)
 
 ---
 
