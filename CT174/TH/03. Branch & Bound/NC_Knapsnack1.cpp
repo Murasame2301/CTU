@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<string.h>
 #include<malloc.h>
+
 typedef struct{
 	char ten[25];
 	float TL, GT, DG;
