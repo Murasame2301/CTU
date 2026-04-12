@@ -119,13 +119,11 @@ Có 3 PP:
 
 ![TDMA](./.image/c5/channel-access-tdma.png)
 
----
-
+#### Mạng GSM: Kết hợp cả 2 FDMA, TDMA
 _Trong thực tế 02 phương pháp này được kết với nhau để tăng hiệu quả sử dụng đường truyền và số người sử dụng_
 
----
+- Mạng GSM ngoài đời thực còn được gọi là mạng điện thoại 2G. Tuy nhiên đến 2025, mạng 2G đã bị cắt sóng hoàn toàn tại VN.
 
-#### Mạng GSM (mạng 2G): Kết hợp cả 2 FDMA, TDMA
 
 #### PP phân chia mã (CDMA)
 
