@@ -168,15 +168,15 @@ $$
 
 - Hai mã S và T có cùng chiều dài m bits được gọi là **trực giao** khi: $S\cdot T = 0$.
 
-Nếu các người dùng trong hệ thống có các mã trực giao với nhau thì họ có thể cùng tồn tại và truyền dữ liệu một cách đồng thời với khả năng bị giao thoa dữ liệu là ít nhất
+- Nếu các người dùng trong hệ thống có các mã trực giao với nhau ($S\cdot T = 0$) $\rightarrow$ họ có thể cùng tồn tại và truyền dữ liệu một cách đồng thời với khả năng bị giao thoa dữ liệu là ít nhất
 
 **Mã hóa và giải mã tín hiệu:**
 
 **\*Mã hóa:**
 
-- Gọi $D_i$ là bit dữ liệu mà người dùng i muốn mã hóa để truyền trên mạng.
-
-- $C_i$ là chuỗi chip (mã số) của người dùng i
+- Gọi
+	- $D_i$ là bit dữ liệu mà người dùng i muốn mã hóa để truyền trên mạng.
+	- $C_i$ là chuỗi chip (mã số) của người dùng i
 
 - Tín hiệu được mã của người dùng i:
 
