@@ -364,11 +364,11 @@ _Khi `n` đạt đến giá trị `16` thì hủy bỏ việc truyền khung._
 
 ![Chuyền thẻ bài](./image/c5/taking-turns-token-ring.png)
 
-- Card mạng gồm một bộ nhận, một bộ phát và một bộ đệm dùng để chứa dữ liệu.
+- Card mạng gồm một bộ **nhận**, một bộ **phát** và một bộ đệm dùng để chứa dữ liệu.
 - Khi không có trạm nào trong vòng cần truyền dữ liệu, thẻ bài sẽ tiếp tục lưu chuyển quanh vòng.
 - Nếu một trạm cần truyền và đang giữ thẻ bài, nó có quyền truyền một hoặc nhiều khung dữ liệu tùy theo quy định của hệ thống.
-- Khung thông tin chạy qua mỗi trạm trong vòng; mỗi trạm sẽ nhìn vào địa chỉ đích trong khung để xác định xem nó có phải đích đến hay không.
-- Nếu đúng là đích, trạm sẽ chép nội dung khung vào bộ đệm của nó nhưng không xóa khung ra khỏi vòng.
+- Khung thông tin chạy qua mỗi trạm trong vòng; _mỗi trạm sẽ nhìn vào địa chỉ đích_ trong khung để xác định xem nó có phải đích đến hay không.
+- **Nếu đúng là đích**, trạm sẽ chép nội dung khung vào bộ đệm của nó nhưng không xóa khung ra khỏi vòng.
 
 ##### Thời gian giữ thẻ bài
 
