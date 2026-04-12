@@ -339,7 +339,7 @@ _Khi `n` đạt đến giá trị `16` thì hủy bỏ việc truyền khung._
 
 - `Thăm dò (polling)`:
   - Trạm chủ (`master`) sẽ mời các trạm tớ (`slave`) truyền khi đến lượt.
-  - Chi phí cần quan tâm là chi phí thăm dò, độ trễ do phải chờ đến lượt truyền và rủi ro khi trạm chủ gặp sự cố.
+  - Vấn đề cần quan tâm là chi phí thăm dò, độ trễ do phải chờ đến lượt truyền và rủi ro khi trạm chủ gặp sự cố.
 - `Chuyền thẻ bài (token passing)`:
   - Thẻ bài điều khiển được chuyển lần lượt từ trạm này sang trạm khác.
   - Trạm đang giữ thẻ bài sẽ có quyền truyền; truyền xong phải chuyển thẻ cho trạm kế tiếp.
