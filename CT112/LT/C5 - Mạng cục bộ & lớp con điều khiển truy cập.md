@@ -356,7 +356,7 @@ _Khi `n` đạt đến giá trị `16` thì hủy bỏ việc truyền khung._
 
 #### Chuyền thẻ bài (Token Ring)
 
-- Trong mạng chỉ tồn tại một thẻ bài duy nhất, là một dãy bit điều khiển.
+- **Trong mạng chỉ tồn tại một thẻ bài duy nhất, là một dãy bit điều khiển.**
 - Thẻ bài sẽ chạy vòng quanh vòng mạng.
 - Mỗi nút nhận thẻ bài rồi lại chuyển tiếp thẻ bài này đi.
 - Khi một trạm cần truyền và đúng lúc thấy thẻ bài tới, nó sẽ lấy thẻ bài ra khỏi vòng và truyền khung dữ liệu của mình.
