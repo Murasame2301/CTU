@@ -319,24 +319,18 @@ $$
 
 ##### LÀM LẠI SAU KHI ĐỤNG ĐỘ
 
-Sau khi bị đụng độ, trạm sẽ thực hiện thuật toán back-off:
+- Sau khi bị đụng độ, trạm sẽ thực hiện thuật toán back-off:
+	- Tính lại lượng thời gian phải chờ trước khi gửi lại khung.
+	- Khoảng thời gian này phải được chọn ngẫu nhiên để các trạm không tiếp tục đụng độ khi cùng quay lại truyền.
+- Thuật toán back-off hoạt động như sau:
 
-- Tính lại lượng thời gian phải chờ trước khi gửi lại khung.
-- Khoảng thời gian này phải được chọn ngẫu nhiên để các trạm không tiếp tục đụng độ khi cùng quay lại truyền.
-
-Thuật toán back-off hoạt động như sau:
-
-- Rút ngẫu nhiên một số nguyên $M$ thỏa $0 \leq M \leq 2^k - 1$, với $k = \min(n, 10)$.
-  - `n` là tổng số lần đụng độ mà trạm đã gặp.
-- Kỳ hạn trạm phải chờ trước khi thử lại là:
-
-$$
-M \times T_w
-$$
+	- Rút ngẫu nhiên một số nguyên $M$ thỏa $0 \leq M \leq 2^k - 1$, với $k = \min(n, 10)$.
+	  - `n` là tổng số lần đụng độ mà trạm đã gặp.
+	- Kỳ hạn trạm phải chờ trước khi thử lại là: $M \times T_w$
 
 _Khi `n` đạt đến giá trị `16` thì hủy bỏ việc truyền khung._
 
-### Phương pháp phân lượt (Taking turns)
+### Phương pháp phân lượt truy cập đường truyền (Taking turns)
 
 - Phương pháp phân lượt tận dụng ưu điểm của phương pháp chia kênh và truy cập ngẫu nhiên.
 - Ý tưởng chính là hạn chế đụng độ bằng cách cho các trạm truy cập đường truyền một cách tuần tự.
