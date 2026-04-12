@@ -143,8 +143,8 @@ _Trong thực tế 02 phương pháp này được kết với nhau để tăng 
 
 Ví dụ: Cho dãy chip: (11110011).
 
-- Để gởi bit **1**, người gửi (sender) sẽ gởi đi dãy chip của mình: 11110011
-- Để gởi đi bit **0**, người gửi (sender) sẽ gởi đi **phần bù** của dãy chip của mình: 00001100
+- Để gởi bit **1**, người dùng sẽ gởi đi dãy chip của mình: 11110011
+- Để gởi đi bit **0**, người dùng sẽ gởi đi **phần bù** của dãy chip của mình: 00001100
 
 - Sử dụng ký hiệu lưỡng cực :
   - bit 0 được ký hiệu là -1,
