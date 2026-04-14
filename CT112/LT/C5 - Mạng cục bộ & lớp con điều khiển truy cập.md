@@ -96,11 +96,11 @@ Có 3 PP:
 - Mỗi trạm được gán cho một băng tần cố định.
 - Những trạm nào được cấp băng tần mà không có dữ liệu để truyền thì ở trong trạng thái nhàn rỗi (idle).
 
-| **Ưu điểm**                                                                                                                                                            | **Nhược điểm**                                                                                                  |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| **Ưu điểm**                                                                                                                                                            | **Nhược điểm**                                                                                                   |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
 | - Không có sự đụng độ xảy ra.<br>- Hiệu quả trong hệ thống hội tụ các điều kiện sau:<br> + Có số lượng người dùng nhỏ và ổn định <br> + Người dùng cần giao tiếp nhiều | - Lãng phí:<br>+ Nếu ít người sử dụng hơn số kênh đã chia.<br> + Nếu nhiều người dùng không cần giao tiếp nhiều. |
 
-  ![FDMA](./.image/c5/channel-access-fdma.png)
+![FDMA](./.image/c5/channel-access-fdma.png)
 
 - Người dùng bị từ chối nếu số lượng vượt quá nhiều số kênh đã chia.
 
@@ -120,10 +120,10 @@ Có 3 PP:
 ![TDMA](./.image/c5/channel-access-tdma.png)
 
 #### Mạng GSM: Kết hợp cả 2 FDMA, TDMA
+
 _Trong thực tế 02 phương pháp này được kết với nhau để tăng hiệu quả sử dụng đường truyền và số người sử dụng_
 
 - Mạng GSM ngoài đời thực còn được gọi là mạng điện thoại 2G. Tuy nhiên đến 2025, mạng 2G đã bị cắt sóng hoàn toàn tại VN.
-
 
 #### PP phân chia mã (CDMA)
 
@@ -175,8 +175,8 @@ $$
 **\*Mã hóa:**
 
 - Gọi
-	- $D_i$ là bit dữ liệu mà người dùng i muốn mã hóa để truyền trên mạng.
-	- $C_i$ là chuỗi chip (mã số) của người dùng i
+  - $D_i$ là bit dữ liệu mà người dùng i muốn mã hóa để truyền trên mạng.
+  - $C_i$ là chuỗi chip (mã số) của người dùng i
 
 - Tín hiệu được mã của người dùng i:
 
@@ -198,16 +198,16 @@ $$D_i = Z \cdot C_i$$
 ### Phương pháp truy cập đường truyền ngẫu nhiên (Random Access)
 
 - Nếu một trạm cần gởi một khung:
-	- Nó sẽ gởi khung đó trên toàn bộ dải thông của kênh truyền.
-	- Không có sự phối hợp trình tự giữa các trạm.
-- Nếu có hơn 2 trạm phát cùng một lúc, “đụng độ” (collision) sẽ xảy ra, các khung bị đụng độ sẽ bị hư hại. 
+  - Nó sẽ gởi khung đó trên toàn bộ dải thông của kênh truyền.
+  - Không có sự phối hợp trình tự giữa các trạm.
+- Nếu có hơn 2 trạm phát cùng một lúc, “đụng độ” (collision) sẽ xảy ra, các khung bị đụng độ sẽ bị hư hại.
 - Giao thức truy cập đường truyền ngẫu nhiên xác định:
-	- Cách để phát hiện đụng độ.
-	- Cách để phục hồi sau đụng độ.
-- Các giao thức truy cập ngẫu nhiên: 
-	- Slotted ALOHA;
-	- Pure ALOHA;
-	- CSMA và CSMA/CD
+  - Cách để phát hiện đụng độ.
+  - Cách để phục hồi sau đụng độ.
+- Các giao thức truy cập ngẫu nhiên:
+  - Slotted ALOHA;
+  - Pure ALOHA;
+  - CSMA và CSMA/CD
 
 #### Slotted ALOHA
 
@@ -320,13 +320,12 @@ $$
 ##### LÀM LẠI SAU KHI ĐỤNG ĐỘ
 
 - Sau khi bị đụng độ, trạm sẽ thực hiện thuật toán back-off:
-	- Tính lại lượng thời gian phải chờ trước khi gửi lại khung.
-	- Khoảng thời gian này phải được chọn ngẫu nhiên để các trạm không tiếp tục đụng độ khi cùng quay lại truyền.
+  - Tính lại lượng thời gian phải chờ trước khi gửi lại khung.
+  - Khoảng thời gian này phải được chọn ngẫu nhiên để các trạm không tiếp tục đụng độ khi cùng quay lại truyền.
 - Thuật toán back-off hoạt động như sau:
-
-	- Rút ngẫu nhiên một số nguyên $M$ thỏa $0 \leq M \leq 2^k - 1$, với $k = \min(n, 10)$.
-	  - `n` là tổng số lần đụng độ mà trạm đã gặp.
-	- Kỳ hạn trạm phải chờ trước khi thử lại là: $M \times T_w$
+  - Rút ngẫu nhiên một số nguyên $M$ thỏa $0 \leq M \leq 2^k - 1$, với $k = \min(n, 10)$.
+    - `n` là tổng số lần đụng độ mà trạm đã gặp.
+  - Kỳ hạn trạm phải chờ trước khi thử lại là: $M \times T_w$
 
 _Khi `n` đạt đến giá trị `16` thì hủy bỏ việc truyền khung._
 
@@ -501,4 +500,40 @@ If (có đụng độ){
 | 10GBase-LR | singlemode        | full duplex   | 10Gbps        |          | 10km             | 65B/66B | 10Gigabit Ethernet |
 | 10GBase-T  | UTP Cat 6 trở lên |               | 10Gbps        |          | 55m / 100m       | LDPC    | 10Gigabit Ethernet |
 
-#
+# Các thiết bị thường được sử dụng trong mạng LAN chuẩn Ethernet
+
+## Repeater - Bộ lặp lại
+
+- Khoảng cách tối đa của cable đồng trục bị giới hạn:
+  - 185 m cho 10BASE-2
+  - 500 m cho 10BASE-5
+
+- Để mở rộng mạng (**tuân thủ chuẩn 5-4-3**). Hoạt động ở tầng vật lý của OSI.
+
+- Chức năng: Khuyếch đại/phục hồi dạng tín hiệu bị suy giảm trong quá trình truyền.
+
+![alt text](image.png)
+
+## Bridge - Cầu nối
+
+- Dùng để kết nối hai đoạn mạng (LAN segments), hai đoạn mạng này có thể sử dụng công nghệ khác nhau.
+- Có khả năng lọc tín hiệu trên mạng, dựa vào địa chỉ của các gói tin, chia mạng thành những miền dung độ (Collision domain) riêng -> tăng hiệu xuất mạng.
+
+**Hoạt động ở tầng 2 của mô hình OSI.**
+
+![alt text](image-1.png)
+
+## Switch - Bộ chuyển mạch
+
+- Chức năng: tương tự như Bridge có thể xem là multi-port bridge.
+- Hiện nay được dùng thông dụng nhất trong mạng LAN.
+
+![alt text](image-2.png)
+
+# Collision domain
+
+- Collision domain: là một vùng trong mạng trong đó các khung dữ liệu có thể xảy ra và chạm khi được truyền trên cùng một phương tiện truyền thông.
+
+- **Trong một collision domain**, khi hai hoặc nhiều thiết bị gửi dữ liệu cùng một lúc, các khung dữ liệu có thể **va chạm và gây mất dữ liệu**.
+
+- **Switch** là thiết bị **giới hạn collision domain** và tạo ra ranh giới giữa các collision domain khác nhau.

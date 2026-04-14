@@ -41,28 +41,7 @@
 - http://203.162.139.21
 - http://www.ctu.edu.vn
 
-- Người dùng
-- Name Server
-- www.cit.ctu.edu.vn
-- TCP
-- http://www.cit.ctu.edu.vn
-- www.cit.ctu.edu.vn
-- IP
-- 203.162.36.146
-- Name Agent
-- Web Browser
-- 203.162.36.148
-- 203.162.36.146
-- 203.162.36.146
-- TCP
-- 203.162.36.146
-- IP
-- IP
-- Web Server
 - DNS là một cơ sở dữ liệu phân tán, được sử dụng trên hệ thống mạng TCP/IP (đặc biệt là Internet), để chuyển tên (theo kiểu tên miền) của máy tính thành địa chỉ IP tương ứng (và ngược lại)
-- TCP
-- IP
-- 203.162.36.146
 
 ![Untitled](./.image/c8/slide06.png)
 
@@ -88,6 +67,8 @@
 - Khi domain con được (Sub-domain) tạo ra, theo sau tên của nó là tên của domain cha
 - Tên của domain con là duy nhất trong domain cha.
   <br> => Ta có thể xác định được vi trí của một domain trong hệ thống phân cấp một cách dễ ràng
+
+![alt text](image-3.png)
 
 # Các nguyên tắc để tạo Domain Namespace
 
@@ -130,7 +111,6 @@
 - Lớp: Cho phép thêm vào các thực thể không do NIC quản lý (Thông thường là IN)
 - TTL: Thời gian sống, xác định khoảng thời gian và mẩu tin sẽ lưu trên cache.
 
-- (Tên, Giá trị, Kiểu, Lớp, TTL)
 - Kiểu A: Tên miền sang địa chỉ IP
 - (ns.ctu.edu.vn, 203.162.41.166, A, IN)
 - Kiểu NS: Tên miền và Name Server của nó
@@ -152,15 +132,6 @@
 - ns.ctu.edu.vn:
 - (ctu.edu.vn, ns.ctu.edu.vn, NS, IN)
 - (ns.ctu.edu.vn, 203.162.36.144, A, IN)
-- 203.162.57.105
-- Server tên
-- của khối edu
-- 203.162.41.166
-- Server tên
-- của ctu
-- 203.162.36.144
-
-![Untitled](./.image/c8/slide16.png)
 
 # Tiến trình phân giải tên
 
@@ -173,32 +144,13 @@
 - Reverse Lookup Query : Giải địa chỉ IP của một tên kết hợp
 - VD: 203.162.139.21 -> www.ctu.edu.vn
 
-- root name server
-- 198.41.0.4
-- .vn
-- 203.162.57.105
-- princeton.edu
-- dns.princeton.edu
-- www.ctu.edu.vn
-- .edu.vn
-- 203.162.41.166
-- www.ctu.edu.vn
-- www.ctu.edu.vn
-- www.ctu.edu.vn
-- cs.princeton.edu
-- dns.cs.princeton.edu
-- www.ctu.edu.vn
-- www.ctu.edu.vn
-- MrBlabla.cs.princeton.edu
-- Mr Blabla
-
-![Untitled](./.image/c8/slide18.png)
-
 # Thư điện tử (Email – Electronic Mail)
 
 ![Untitled](./.image/c8/slide19.png)
 
 # Giới thiệu về hệ thống thư điện tử
+
+![alt text](image-4.png)
 
 - Gởi nhận thư thông qua hệ thống mạng máy tính
 - Hệ thống gồm 3 thành phần chính
@@ -206,13 +158,9 @@
 - Mail Server
 - Mail Protocols
 
-![Untitled](./.image/c8/slide20.png)
-
 - User Agent (Mail reader)
 - Soạn thư, trả lời thư, đọc thư…
 - VD: Eudora, Outlook, Netscape Messenger, Pmail…
-
-![Untitled](./.image/c8/slide21.png)
 
 - Mail Servers
 - Hộp thư (Mailbox) chứa thư gởi đến người sử dụng (thường là chưa đọc)
@@ -221,17 +169,11 @@
 - “Client”: máy chủ email thực hiện việc gởi thư
 - “Server”: máy chủ email thực hiện việc nhận thư
 
-![Untitled](./.image/c8/slide22.png)
-
 - Mail Protocols
 - SMTP (Simple Mail Transfer Protocol) , RFC822
 - POP3 (Post Office Protocol version 3 [RFC 1939])
 - IMAP: (Internet Mail Access Protocol [RFC 1730]):
-- SMTP: send
-- POP3/IMAP
-- Receive
-
-![Untitled](./.image/c8/slide23.png)
+  ![alt text](image-5.png)
 
 # Electronic Mail: SMTP [RFC 821]
 
@@ -245,40 +187,6 @@
 - Commands: ASCII text
 - Response: status code and phrase
 - Thông điệp phải mã hóa dưới dạng 7-bit ASCII
-
-- S: 220 hamburger.edu
-- C: HELO crepes.fr
-- S: 250 Hello crepes.fr, pleased to meet you
-- C: MAIL FROM: <alice@crepes.fr>
-- S: 250 alice@crepes.fr... Sender ok
-- C: RCPT TO: <bob@hamburger.edu>
-- S: 250 bob@hamburger.edu ... Recipient ok
-- C: DATA
-- S: 354 Enter mail, end with "." on a line by itself
-- C: Do you like ketchup?
-- C: How about pickles?
-- C: .
-- S: 250 Message accepted for delivery
-- C: QUIT
-- S: 221 hamburger.edu closing connection
-
-# Mail message format
-
-- header
-- blank
-- line
-- RFC 822: standard for text message format:
-- header lines, e.g.,
-- To:
-- From:
-- Subject:
-- <CRLF>
-- <CRLF>
-- body
-- the “message”, ASCII characters only
-- body
-
-![Untitled](./.image/c8/slide26.png)
 
 # MIME (Multipurpose Internet Mail Extensions)
 
