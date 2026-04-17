@@ -101,7 +101,19 @@ function Save-XmlDocument {
 }
 
 function Get-ParagraphText {
-    param([System.Xml.XmlNode]$Paragraph)
+    param($Paragraph)
+
+    if ($null -eq $Paragraph) {
+        return ''
+    }
+
+    if ($Paragraph -isnot [System.Xml.XmlNode] -and $Paragraph.PSObject.Properties['Node']) {
+        $Paragraph = $Paragraph.Node
+    }
+
+    if ($Paragraph -isnot [System.Xml.XmlNode]) {
+        return ''
+    }
 
     $parts = foreach ($node in $Paragraph.SelectNodes('.//*[local-name()="t"]')) {
         $node.InnerText
@@ -143,7 +155,7 @@ function Is-ExplicitQuestionStart {
     param([string]$Text)
 
     $normalized = (Remove-Diacritics $Text).Trim().ToLowerInvariant()
-    return $normalized -match '^(cau(\s*[0-9,]+)?|\\d{1,2})\s*[:\.\-\)]'
+    return $normalized -match '^(cau(\s*[0-9,]+)?|\d{1,3})\s*[:\.\-\)]'
 }
 
 function Is-ImplicitQuestionStart {
@@ -171,11 +183,27 @@ function Is-ImplicitQuestionStart {
 function Get-QuestionBlocks {
     param([xml]$DocXml)
 
-    $paragraphs = @($DocXml.DocumentElement.SelectNodes('//*[local-name()="body"]/*[local-name()="p"]'))
+    $body = $DocXml.DocumentElement.SelectSingleNode('//*[local-name()="body"]')
+    $bodyChildren = @(
+        $body.ChildNodes |
+            Where-Object { $_.NodeType -eq [System.Xml.XmlNodeType]::Element }
+    )
+
+    $paragraphs = [System.Collections.Generic.List[object]]::new()
+    for ($i = 0; $i -lt $bodyChildren.Count; $i++) {
+        $node = $bodyChildren[$i]
+        if ($node.LocalName -eq 'p') {
+            [void]$paragraphs.Add([pscustomobject]@{
+                BodyIndex = $i
+                Node      = $node
+            })
+        }
+    }
+
     $starts = [System.Collections.Generic.List[int]]::new()
 
     for ($i = 0; $i -lt $paragraphs.Count; $i++) {
-        $text = (Get-ParagraphText $paragraphs[$i]).Trim()
+        $text = (Get-ParagraphText $paragraphs[$i].Node).Trim()
         if (-not $text) {
             continue
         }
@@ -188,20 +216,30 @@ function Get-QuestionBlocks {
 
     $blocks = [System.Collections.Generic.List[object]]::new()
     for ($i = 0; $i -lt $starts.Count; $i++) {
-        $startIndex = $starts[$i]
-        $endIndex = if ($i -lt $starts.Count - 1) { $starts[$i + 1] - 1 } else { $paragraphs.Count - 1 }
+        $startParagraphIndex = $starts[$i]
+        $startBodyIndex = $paragraphs[$startParagraphIndex].BodyIndex
+        $endBodyIndex = if ($i -lt $starts.Count - 1) {
+            $paragraphs[$starts[$i + 1]].BodyIndex - 1
+        } else {
+            if ($bodyChildren[-1].LocalName -eq 'sectPr') {
+                $bodyChildren.Count - 2
+            } else {
+                $bodyChildren.Count - 1
+            }
+        }
 
-        $paragraphClones = [System.Collections.Generic.List[System.Xml.XmlNode]]::new()
-        for ($j = $startIndex; $j -le $endIndex; $j++) {
-            [void]$paragraphClones.Add($paragraphs[$j].CloneNode($true))
+        $nodeClones = [System.Collections.Generic.List[System.Xml.XmlNode]]::new()
+        for ($j = $startBodyIndex; $j -le $endBodyIndex; $j++) {
+            [void]$nodeClones.Add($bodyChildren[$j].CloneNode($true))
         }
 
         $blocks.Add([pscustomobject]@{
-            Index           = $blocks.Count + 1
-            StartParagraph  = $startIndex
-            EndParagraph    = $endIndex
-            FirstLine       = (Get-ParagraphText $paragraphs[$startIndex]).Trim()
-            ParagraphClones = $paragraphClones
+            Index              = $blocks.Count + 1
+            StartBodyIndex     = $startBodyIndex
+            EndBodyIndex       = $endBodyIndex
+            FirstLine          = (Get-ParagraphText $paragraphs[$startParagraphIndex].Node).Trim()
+            FirstParagraphNode = $nodeClones | Where-Object { $_.LocalName -eq 'p' } | Select-Object -First 1
+            NodeClones         = $nodeClones
         })
     }
 
@@ -214,7 +252,7 @@ function Remove-QuestionPrefix {
         [string]$FullText
     )
 
-    $match = [regex]::Match($FullText, '^(C\S*u(\s*[0-9,]+)?|\\d{1,2})\s*[:\.\-\)]\s*', [System.Text.RegularExpressions.RegexOptions]::IgnoreCase)
+    $match = [regex]::Match($FullText, '^(C\S*u(\s*[0-9,]+)?|\d{1,3})\s*[:\.\-\)]\s*', [System.Text.RegularExpressions.RegexOptions]::IgnoreCase)
     if (-not $match.Success) {
         return
     }
@@ -271,7 +309,7 @@ function Renumber-Block {
         [int]$NewNumber
     )
 
-    $firstParagraph = $Block.ParagraphClones[0]
+    $firstParagraph = $Block.FirstParagraphNode
     $firstText = Get-ParagraphText $firstParagraph
     Remove-QuestionPrefix -Paragraph $firstParagraph -FullText $firstText
     $questionLabel = 'C' + [char]0x00E2 + 'u'
@@ -289,10 +327,10 @@ $docXml = Get-ZipXml -DocxPath $docxPath -EntryName 'word/document.xml'
 $blocks = Get-QuestionBlocks -DocXml $docXml
 
 $desiredOrder = @(
-    5, 51, 9, 7,
-    4, 10, 14, 22, 25, 29, 18, 19, 31, 50, 8, 28, 12, 1, 3, 33, 26, 2, 27, 45,
-    11, 15, 30, 38, 36, 48, 20, 16, 21, 17, 52, 39, 32, 44, 37, 46,
-    43, 42, 34, 23, 24, 49, 40, 47, 53,
+    51, 5, 9, 7, 10,
+    4, 25, 29, 22, 19, 18, 31, 50, 14, 1, 3, 33, 2, 8, 28, 27, 45, 26, 12,
+    11, 15, 30, 38, 20, 16, 21, 48, 36, 52, 17, 39, 32, 44, 37, 46,
+    43, 42, 23, 34, 24, 49, 40, 47, 53,
     35, 41, 13, 6
 )
 
@@ -308,26 +346,36 @@ for ($i = 0; $i -lt $sortedOrder.Count; $i++) {
 }
 
 $body = $docXml.DocumentElement.SelectSingleNode('//*[local-name()="body"]')
-$paragraphs = @($body.SelectNodes('./*[local-name()="p"]'))
-$firstQuestionIndex = $blocks[0].StartParagraph
-$lastQuestionIndex = $blocks[-1].EndParagraph
+$bodyChildren = @(
+    $body.ChildNodes |
+        Where-Object { $_.NodeType -eq [System.Xml.XmlNodeType]::Element }
+)
+$firstQuestionIndex = $blocks[0].StartBodyIndex
+$lastQuestionIndex = $blocks[-1].EndBodyIndex
 
-$insertAfter = $paragraphs[$firstQuestionIndex - 1]
-if (-not $insertAfter) {
-    throw 'Could not find insertion anchor before the first question.'
-}
+$insertAfter = if ($firstQuestionIndex -gt 0) { $bodyChildren[$firstQuestionIndex - 1] } else { $null }
 
 for ($i = $lastQuestionIndex; $i -ge $firstQuestionIndex; $i--) {
-    [void]$body.RemoveChild($paragraphs[$i])
+    [void]$body.RemoveChild($bodyChildren[$i])
 }
 
 for ($i = 0; $i -lt $desiredOrder.Count; $i++) {
     $block = $blocks[$desiredOrder[$i] - 1]
     Renumber-Block -DocXml $docXml -Block $block -NewNumber ($i + 1)
 
-    foreach ($paragraphClone in $block.ParagraphClones) {
-        $imported = $docXml.ImportNode($paragraphClone, $true)
-        $insertAfter = $body.InsertAfter($imported, $insertAfter)
+    foreach ($nodeClone in $block.NodeClones) {
+        $imported = $docXml.ImportNode($nodeClone, $true)
+        if ($insertAfter) {
+            $insertAfter = $body.InsertAfter($imported, $insertAfter)
+        } else {
+            $firstChild = $body.FirstChild
+            if ($firstChild) {
+                [void]$body.InsertBefore($imported, $firstChild)
+            } else {
+                [void]$body.AppendChild($imported)
+            }
+            $insertAfter = $imported
+        }
     }
 }
 

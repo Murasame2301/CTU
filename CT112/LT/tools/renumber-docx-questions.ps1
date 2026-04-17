@@ -1,3 +1,8 @@
+param(
+    [Parameter(Mandatory = $true)]
+    [string]$DocxPath
+)
+
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
@@ -135,15 +140,15 @@ function Is-OptionLine {
 function Is-NoteLine {
     param([string]$Text)
 
-    $normalized = (Remove-Diacritics $Text).ToLowerInvariant()
-    return $normalized -match '^(ghi chu|luu y|mac du|->|\(giai thich:|answer:|chon dap an chinh xac nhat:?$)'
+    $normalized = (Remove-Diacritics $Text).ToLowerInvariant().Trim()
+    return $normalized -match '^(chuong\s*[0-9]+:|-\s*ghi chu:|ghi chu:)'
 }
 
 function Is-ExplicitQuestionStart {
     param([string]$Text)
 
     $normalized = (Remove-Diacritics $Text).Trim().ToLowerInvariant()
-    return $normalized -match '^(cau(\s*\d+)?|\d{1,3})\s*[:\.\-\)]'
+    return $normalized -match '^(cau(\s*[0-9,]+)?|\d{1,2})\s*[:\.\-\)]'
 }
 
 function Is-ImplicitQuestionStart {
@@ -161,11 +166,11 @@ function Is-ImplicitQuestionStart {
         return $false
     }
 
-    if (-not (Is-OptionLine $NextText)) {
+    if (Is-OptionLine $trimmed) {
         return $false
     }
 
-    return ($trimmed -match '\?$' -or $trimmed -match ':$')
+    return (Is-OptionLine $NextText)
 }
 
 function Get-QuestionBlocks {
@@ -176,6 +181,10 @@ function Get-QuestionBlocks {
 
     for ($i = 0; $i -lt $paragraphs.Count; $i++) {
         $text = (Get-ParagraphText $paragraphs[$i]).Trim()
+        if (-not $text) {
+            continue
+        }
+
         $nextText = Get-NextNonEmptyParagraphText -Paragraphs $paragraphs -StartIndex $i
         if ((Is-ExplicitQuestionStart $text) -or (Is-ImplicitQuestionStart -Text $text -NextText $nextText)) {
             $starts.Add($i)
@@ -210,7 +219,7 @@ function Remove-QuestionPrefix {
         [string]$FullText
     )
 
-    $match = [regex]::Match($FullText, '^(C\S*u(\s*\d+)?|\d{1,3})\s*[:\.\-\)]\s*', [System.Text.RegularExpressions.RegexOptions]::IgnoreCase)
+    $match = [regex]::Match($FullText, '^(C\S*u(\s*[0-9,]+)?|\d{1,2})\s*[:\.\-\)]\s*', [System.Text.RegularExpressions.RegexOptions]::IgnoreCase)
     if (-not $match.Success) {
         return
     }
@@ -274,40 +283,8 @@ function Renumber-Block {
     Prepend-QuestionPrefix -DocXml $DocXml -Paragraph $firstParagraph -Prefix ("{0} {1}: " -f $questionLabel, $NewNumber)
 }
 
-$docxPath = 'TNChuong5.docx'
-$backupPath = 'TNChuong5.backup-before-reorder.docx'
-
-if (-not (Test-Path -LiteralPath $backupPath)) {
-    Copy-Item -LiteralPath $docxPath -Destination $backupPath
-}
-
-$docXml = Get-ZipXml -DocxPath $docxPath -EntryName 'word/document.xml'
+$docXml = Get-ZipXml -DocxPath $DocxPath -EntryName 'word/document.xml'
 $blocks = Get-QuestionBlocks -DocXml $docXml
-
-$desiredOrder = @(
-    6, 7, 8, 9, 10, 11,
-    12,
-    13, 14, 44, 15, 16, 17, 18, 19,
-    20, 21, 22, 23, 24, 25,
-    28, 29, 30,
-    1, 2, 3, 4, 5,
-    26, 27,
-    35, 32, 33, 31, 34,
-    36, 37, 38, 39, 40, 41,
-    42, 43
-)
-
-if ($blocks.Count -ne $desiredOrder.Count) {
-    throw "Expected $($desiredOrder.Count) question blocks but found $($blocks.Count)."
-}
-
-$sortedOrder = @($desiredOrder | Sort-Object)
-for ($i = 0; $i -lt $sortedOrder.Count; $i++) {
-    if ($sortedOrder[$i] -ne ($i + 1)) {
-        throw 'Desired order does not contain a complete 1..N permutation.'
-    }
-}
-
 $body = $docXml.DocumentElement.SelectSingleNode('//*[local-name()="body"]')
 $paragraphs = @($body.SelectNodes('./*[local-name()="p"]'))
 $firstQuestionIndex = $blocks[0].StartParagraph
@@ -322,8 +299,8 @@ for ($i = $lastQuestionIndex; $i -ge $firstQuestionIndex; $i--) {
     [void]$body.RemoveChild($paragraphs[$i])
 }
 
-for ($i = 0; $i -lt $desiredOrder.Count; $i++) {
-    $block = $blocks[$desiredOrder[$i] - 1]
+for ($i = 0; $i -lt $blocks.Count; $i++) {
+    $block = $blocks[$i]
     Renumber-Block -DocXml $docXml -Block $block -NewNumber ($i + 1)
 
     foreach ($paragraphClone in $block.ParagraphClones) {
@@ -332,7 +309,6 @@ for ($i = 0; $i -lt $desiredOrder.Count; $i++) {
     }
 }
 
-Set-ZipStringEntry -DocxPath $docxPath -EntryName 'word/document.xml' -Content (Save-XmlDocument -XmlDocument $docXml)
+Set-ZipStringEntry -DocxPath $DocxPath -EntryName 'word/document.xml' -Content (Save-XmlDocument -XmlDocument $docXml)
 
-Write-Output ("Reordered and renumbered {0} question blocks in {1}." -f $blocks.Count, $docxPath)
-Write-Output ("Backup: {0}" -f $backupPath)
+Write-Output ("Renumbered {0} question blocks in {1}." -f $blocks.Count, $DocxPath)

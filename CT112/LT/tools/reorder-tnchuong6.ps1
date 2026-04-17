@@ -145,7 +145,11 @@ function Is-ExplicitQuestionStart {
     param([string]$Text)
 
     $normalized = (Remove-Diacritics $Text).Trim().ToLowerInvariant()
-    return $normalized -match '^(cau(\s*[0-9,]+)?|\d{1,2})\s*[:\.\-\)]'
+    if ($normalized -match '^\d{1,3}\.\d') {
+        return $false
+    }
+
+    return $normalized -match '^(cau(\s*[0-9,]+)?|\d{1,3})\s*[:\.\-\)]'
 }
 
 function Is-ImplicitQuestionStart {
@@ -196,6 +200,14 @@ function Get-QuestionBlocks {
 
         $paragraphClones = [System.Collections.Generic.List[System.Xml.XmlNode]]::new()
         for ($j = $startIndex; $j -le $endIndex; $j++) {
+            $paragraphText = (Get-ParagraphText $paragraphs[$j]).Trim()
+
+            # Drop a stray IPv4 note line that was detached from its original context
+            # and incorrectly appears inside the loopback question block.
+            if ($paragraphText -eq '131.107.2.56/28 198.128.32.0') {
+                continue
+            }
+
             [void]$paragraphClones.Add($paragraphs[$j].CloneNode($true))
         }
 
@@ -217,7 +229,7 @@ function Remove-QuestionPrefix {
         [string]$FullText
     )
 
-    $match = [regex]::Match($FullText, '^(C\S*u(\s*[0-9,]+)?|\d{1,2})\s*[:\.\-\)]\s*', [System.Text.RegularExpressions.RegexOptions]::IgnoreCase)
+    $match = [regex]::Match($FullText, '^(C\S*u(\s*[0-9,]+)?|\d{1,3})\s*[:\.\-\)]\s*', [System.Text.RegularExpressions.RegexOptions]::IgnoreCase)
     if (-not $match.Success) {
         return
     }
@@ -292,12 +304,15 @@ $docXml = Get-ZipXml -DocxPath $docxPath -EntryName 'word/document.xml'
 $blocks = Get-QuestionBlocks -DocXml $docXml
 
 $desiredOrder = @(
-    9, 10, 11, 73, 50, 43, 55, 4, 12, 38, 13, 39, 6, 14, 60,
-    67, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 45, 61, 63, 66, 41, 57, 25, 42, 3, 68, 47,
-    8, 71, 2, 78, 79, 1, 7,
-    26, 27, 40, 28, 72, 46, 69, 56, 80, 59, 29, 58, 30, 44, 49, 31, 32, 33, 34, 64, 65, 35, 62, 36, 37, 74, 52, 53, 48,
-    51, 54, 70, 75, 77,
-    5, 76
+    1, 2, 3, 4, 5, 6, 7, 8,
+    9, 10, 11, 12, 13,
+    14, 15,
+    16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35,
+    36, 37,
+    38, 39, 40, 41, 42, 43, 44,
+    45, 46, 47, 48, 49, 50, 51, 52, 53, 54,
+    55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73,
+    74, 75, 76, 77, 78
 )
 
 if ($blocks.Count -ne $desiredOrder.Count) {

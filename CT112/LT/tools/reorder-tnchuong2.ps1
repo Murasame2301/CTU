@@ -135,15 +135,15 @@ function Is-OptionLine {
 function Is-NoteLine {
     param([string]$Text)
 
-    $normalized = (Remove-Diacritics $Text).ToLowerInvariant()
-    return $normalized -match '^(ghi chu|luu y|mac du|->|\(giai thich:|answer:|chon dap an chinh xac nhat:?$)'
+    $normalized = (Remove-Diacritics $Text).ToLowerInvariant().Trim()
+    return $normalized -match '^(chuong 2:|-?\s*ghi chu:|ghi chu:|chon dap an chinh xac nhat:?$)'
 }
 
 function Is-ExplicitQuestionStart {
     param([string]$Text)
 
     $normalized = (Remove-Diacritics $Text).Trim().ToLowerInvariant()
-    return $normalized -match '^(cau(\s*\d+)?|\d{1,3})\s*[:\.\-\)]'
+    return $normalized -match '^(cau(\s*[0-9,]+)?|\d{1,3})\s*[:\.\-\)]'
 }
 
 function Is-ImplicitQuestionStart {
@@ -161,11 +161,11 @@ function Is-ImplicitQuestionStart {
         return $false
     }
 
-    if (-not (Is-OptionLine $NextText)) {
+    if (Is-OptionLine $trimmed) {
         return $false
     }
 
-    return ($trimmed -match '\?$' -or $trimmed -match ':$')
+    return (Is-OptionLine $NextText)
 }
 
 function Get-QuestionBlocks {
@@ -176,6 +176,10 @@ function Get-QuestionBlocks {
 
     for ($i = 0; $i -lt $paragraphs.Count; $i++) {
         $text = (Get-ParagraphText $paragraphs[$i]).Trim()
+        if (-not $text) {
+            continue
+        }
+
         $nextText = Get-NextNonEmptyParagraphText -Paragraphs $paragraphs -StartIndex $i
         if ((Is-ExplicitQuestionStart $text) -or (Is-ImplicitQuestionStart -Text $text -NextText $nextText)) {
             $starts.Add($i)
@@ -210,7 +214,7 @@ function Remove-QuestionPrefix {
         [string]$FullText
     )
 
-    $match = [regex]::Match($FullText, '^(C\S*u(\s*\d+)?|\d{1,3})\s*[:\.\-\)]\s*', [System.Text.RegularExpressions.RegexOptions]::IgnoreCase)
+    $match = [regex]::Match($FullText, '^(C\S*u(\s*[0-9,]+)?|\d{1,3})\s*[:\.\-\)]\s*', [System.Text.RegularExpressions.RegexOptions]::IgnoreCase)
     if (-not $match.Success) {
         return
     }
@@ -274,8 +278,8 @@ function Renumber-Block {
     Prepend-QuestionPrefix -DocXml $DocXml -Paragraph $firstParagraph -Prefix ("{0} {1}: " -f $questionLabel, $NewNumber)
 }
 
-$docxPath = 'TNChuong5.docx'
-$backupPath = 'TNChuong5.backup-before-reorder.docx'
+$docxPath = 'TNChuong2.docx'
+$backupPath = 'TNChuong2.backup-before-reorder.docx'
 
 if (-not (Test-Path -LiteralPath $backupPath)) {
     Copy-Item -LiteralPath $docxPath -Destination $backupPath
@@ -285,16 +289,16 @@ $docXml = Get-ZipXml -DocxPath $docxPath -EntryName 'word/document.xml'
 $blocks = Get-QuestionBlocks -DocXml $docXml
 
 $desiredOrder = @(
-    6, 7, 8, 9, 10, 11,
-    12,
-    13, 14, 44, 15, 16, 17, 18, 19,
-    20, 21, 22, 23, 24, 25,
-    28, 29, 30,
-    1, 2, 3, 4, 5,
-    26, 27,
-    35, 32, 33, 31, 34,
-    36, 37, 38, 39, 40, 41,
-    42, 43
+    2, 1,
+    3, 4, 5,
+    6, 7, 8, 9, 13, 41, 10, 11, 12,
+    14, 15,
+    16, 17, 18, 19,
+    42, 20, 21,
+    22, 23, 24, 25,
+    26, 27, 28,
+    29, 30, 31, 32, 33, 34, 35, 36, 37,
+    38, 39, 40
 )
 
 if ($blocks.Count -ne $desiredOrder.Count) {
