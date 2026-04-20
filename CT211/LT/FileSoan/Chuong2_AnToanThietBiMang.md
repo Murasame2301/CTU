@@ -1,8 +1,8 @@
-# 📡 Tóm tắt bài học: An toàn cho các thiết bị mạng (Chương 2)
+# 📡 CHƯƠNG 2: AN TOÀN CHO CÁC THIẾT BỊ MẠNG
 
 ---
 
-## Phần 1 – Tầng 1 (Physical Layer)
+## I) Tầng 1 (Physical Layer)
 
 ### Khái niệm
 > **Điểm truy nhập (Access Point)** là nơi người dùng hợp lệ *và không hợp lệ* có thể truy cập vào mạng để khai thác tài nguyên.
