@@ -1,8 +1,7 @@
-# Chương 1: Tổng Quan về An Toàn Hệ Thống và An Ninh Mạng
-
+# Chương 1: TỔNG QUAN VỀ AN TOÀN HỆ THỐNG & AN NINH MẠNG
 ---
 
-## PHẦN 1 – KHÁI NIỆM CƠ BẢN
+## I) KHÁI NIỆM CƠ BẢN
 
 ### An toàn là gì?
 
@@ -27,7 +26,7 @@ Ba mục tiêu cần đạt được của một hệ thống an toàn, thườn
 
 ---
 
-## PHẦN 2 – TẤN CÔNG TRÊN MẠNG
+## II) TẤN CÔNG TRÊN MẠNG
 
 ### Phân loại mối đe dọa (Threat)
 
@@ -200,7 +199,7 @@ Dùng nhiều máy bị kiểm soát (**Botnet**) tấn công cùng lúc. Công 
 
 ---
 
-## PHẦN 3 – CÁC PHẦN MỀM CÓ HẠI (MALWARE)
+## III) CÁC PHẦN MỀM CÓ HẠI (MALWARE)
 
 ### Phân loại Malware
 
@@ -244,7 +243,7 @@ Dùng nhiều máy bị kiểm soát (**Botnet**) tấn công cùng lúc. Công 
 
 ---
 
-## PHẦN 4 – YÊU CẦU CỦA HỆ THỐNG MẠNG AN TOÀN
+## IV) YÊU CẦU CỦA HỆ THỐNG MẠNG AN TOÀN
 
 ### Kiến trúc AAA
 
